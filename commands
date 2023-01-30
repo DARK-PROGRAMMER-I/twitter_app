@@ -1,0 +1,2 @@
+to start appwite : docker compose up -d --remove-orphans
+to stop appwite : docker compose stop
