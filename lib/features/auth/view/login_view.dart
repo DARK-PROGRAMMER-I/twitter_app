@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:twitter_clone/constants/ui_constants.dart';
@@ -59,16 +60,22 @@ class _LoginViewState extends State<LoginView> {
                   ),
                 ),
                 SizedBox(
-                  height: 20.h,
+                  height: 50.h,
                 ),
                 RichText(
                     text: TextSpan(
-                      text: 'Already have an Account? \ \ ',
-                      style: TextStyle(fontSize: 16.spMax, color: Pallete.whiteColor),
+                      text: 'Don\'t have an Account? \ \ ',
+                      style: TextStyle(
+                        fontSize: 16.spMax,
+                        color: Pallete.whiteColor,
+                        letterSpacing: 1.1.w
+                      ),
                       children: [
                         TextSpan(
                           text: 'Sign-Up',
                           style: TextStyle(fontSize: 16.spMax, color: Pallete.blueColor),
+                          recognizer: TapGestureRecognizer()..onTap = (){
+                          }
                         )
                       ]
                     ),
