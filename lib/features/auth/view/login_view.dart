@@ -49,9 +49,13 @@ class _LoginViewState extends State<LoginView> {
                     controller: _passCtr,
                 ),
 
-                SizedBox(height: 30.h,),
-                RoundedSmallButton(
-                  title: 'Done',
+                SizedBox(height: 40.h,),
+                Container(
+                  alignment: Alignment.centerRight,
+                  child: RoundedSmallButton(
+                    title: 'Done',
+                    onTap: () {  },
+                  ),
                 )
               ],
             ),
