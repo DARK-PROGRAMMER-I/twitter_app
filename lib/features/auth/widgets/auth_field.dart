@@ -11,9 +11,13 @@ class AuthField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      style: TextStyle(
+        fontSize: 18.spMax
+      ),
       controller: controller,
       decoration: InputDecoration(
         hintText: hintText,
+
         contentPadding: EdgeInsets.only(left: 25.w, top: 25.h, bottom: 25.h),
         focusedBorder: OutlineInputBorder(
           borderSide: const BorderSide(

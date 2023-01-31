@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:twitter_clone/constants/ui_constants.dart';
 import 'package:twitter_clone/features/auth/widgets/auth_field.dart';
 
+import '../../../common/rounded_small_button.dart';
+
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
 
@@ -46,6 +48,11 @@ class _LoginViewState extends State<LoginView> {
                   hintText: 'Password',
                     controller: _passCtr,
                 ),
+
+                SizedBox(height: 30.h,),
+                RoundedSmallButton(
+                  title: 'Done',
+                )
               ],
             ),
           ),
