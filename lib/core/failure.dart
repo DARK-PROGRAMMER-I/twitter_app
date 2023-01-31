@@ -1,5 +1,5 @@
 class Failure{
   final String message;
-  final String stackTrace;
+  final StackTrace stackTrace;
   const Failure(this.message, this.stackTrace);
 }
