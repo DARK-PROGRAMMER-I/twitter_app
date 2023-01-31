@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:twitter_clone/theme/app_theme.dart';
-import 'package:twitter_clone/theme/pallete.dart';
+
+import '../../../utils/theme/theme.dart';
+import '../../../utils/common/exports.dart';
 
 class AuthField extends StatelessWidget {
   final TextEditingController controller;

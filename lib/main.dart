@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:twitter_clone/features/auth/view/signup_view.dart';
+import 'package:twitter_clone/routes/route_manager.dart';
 import 'package:twitter_clone/utils/theme/app_theme.dart';
 
 
@@ -22,7 +23,8 @@ class MyApp extends StatelessWidget {
             title: 'Flutter Demo',
             debugShowCheckedModeBanner: false,
             theme: AppTheme.theme,
-            home: SignupView()
+            initialRoute: Routes.signup,
+            onGenerateRoute: AppRoutes.onGenerateRoute,
           );
         });
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:twitter_clone/features/auth/widgets/auth_field.dart';
 
+import '../../../routes/route_manager.dart';
 import '../../../utils/common/exports.dart';
 import '../../../utils/constants/constants.dart';
 import '../../../utils/theme/theme.dart';
@@ -73,6 +74,7 @@ class _SignupViewState extends State<SignupView> {
                               text: 'Login',
                               style: TextStyle(fontSize: 16.spMax, color: Pallete.blueColor),
                               recognizer: TapGestureRecognizer()..onTap = (){
+                                Navigator.pushNamed(context, Routes.login);
                               }
                           )
                         ]

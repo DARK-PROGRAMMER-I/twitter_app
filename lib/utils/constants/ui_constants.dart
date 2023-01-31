@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:twitter_clone/theme/pallete.dart';
 
+import '../theme/theme.dart';
 import 'asset_constants.dart';
 
 class UIConstants{

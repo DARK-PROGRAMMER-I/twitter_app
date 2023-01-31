@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:twitter_clone/theme/theme.dart';
-
+import './theme.dart';
 
 
 class AppTheme {
