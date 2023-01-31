@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:twitter_clone/theme/app_theme.dart';
+import 'package:twitter_clone/features/auth/view/signup_view.dart';
+import 'package:twitter_clone/utils/theme/app_theme.dart';
 
-import 'features/auth/view/login_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
             title: 'Flutter Demo',
             debugShowCheckedModeBanner: false,
             theme: AppTheme.theme,
-            home: const LoginView(),
+            home: SignupView()
           );
         });
   }
