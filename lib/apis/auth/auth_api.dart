@@ -1,8 +1,15 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:twitter_clone/core/core.dart';
 import 'package:appwrite/appwrite.dart';
 import 'package:appwrite/models.dart' as model;
+import 'package:twitter_clone/core/providers.dart';
 
+final authApiProvider = Provider<AuthApi>((ref) {
+  return AuthApi(
+      account: ref.watch(appwriteAccountProvider),
+  );
+});
 
 abstract class IAuthApi{
   FutureEither<model.Account> signup({
