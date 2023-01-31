@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:twitter_clone/constants/ui_constants.dart';
 import 'package:twitter_clone/features/auth/widgets/auth_field.dart';
+import 'package:twitter_clone/theme/pallete.dart';
 
 import '../../../common/rounded_small_button.dart';
 
@@ -50,12 +51,27 @@ class _LoginViewState extends State<LoginView> {
                 ),
 
                 SizedBox(height: 40.h,),
-                Container(
+                Align(
                   alignment: Alignment.centerRight,
                   child: RoundedSmallButton(
                     title: 'Done',
                     onTap: () {  },
                   ),
+                ),
+                SizedBox(
+                  height: 20.h,
+                ),
+                RichText(
+                    text: TextSpan(
+                      text: 'Already have an Account? \ \ ',
+                      style: TextStyle(fontSize: 16.spMax, color: Pallete.whiteColor),
+                      children: [
+                        TextSpan(
+                          text: 'Sign-Up',
+                          style: TextStyle(fontSize: 16.spMax, color: Pallete.blueColor),
+                        )
+                      ]
+                    ),
                 )
               ],
             ),
