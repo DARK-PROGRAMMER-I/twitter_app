@@ -27,8 +27,8 @@ class AuthApi implements IAuthApi{
           password: password
       );
       return right(account);
-    }catch(e, stackTrace){
-      return left(Failure(e.toString(), stackTrace));
+    }on AppwriteException catch(e, stackTrace){
+      return left(Failure(e.message.toString(), stackTrace));
     }
   }
 
