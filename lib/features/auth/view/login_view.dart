@@ -24,19 +24,31 @@ class _LoginViewState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
+    final appbar = UIConstants.appBar();
     return Scaffold(
-      appBar: UIConstants.appBar(),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20.w),
-        child: Column(
-          children: [
-            AuthField(
-                controller: _emailCtr,
+      appBar: appbar ,
+      body: Center(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20.w),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                AuthField(
+                    controller: _emailCtr,
+                  hintText: "Email",
+                ),
+                SizedBox(
+                  height: 20.h,
+                ),
+                AuthField(
+                  hintText: 'Password',
+                    controller: _passCtr,
+                ),
+              ],
             ),
-            AuthField(
-                controller: _passCtr,
-            ),
-          ],
+          ),
         ),
       )
     );

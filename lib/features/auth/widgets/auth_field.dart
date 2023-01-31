@@ -5,19 +5,28 @@ import 'package:twitter_clone/theme/pallete.dart';
 
 class AuthField extends StatelessWidget {
   final TextEditingController controller;
-  const AuthField({Key? key, required this.controller}) : super(key: key);
+  final String hintText;
+  const AuthField({Key? key, required this.controller, required this.hintText}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
       decoration: InputDecoration(
+        hintText: hintText,
+        contentPadding: EdgeInsets.only(left: 25.w, top: 25.h, bottom: 25.h),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Pallete.blueColor
           ),
           borderRadius: BorderRadius.circular(10.r)
-        )
+        ),
+          border: OutlineInputBorder(
+              borderSide: const BorderSide(
+                  color: Pallete.blueColor
+              ),
+              borderRadius: BorderRadius.circular(10.r)
+          )
       ),
     );
   }
