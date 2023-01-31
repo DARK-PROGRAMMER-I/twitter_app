@@ -12,3 +12,7 @@ final appwriteClientProvider = Provider<Client>((ref) {
 });
 
 
+final appwriteAccountProvider = Provider<Account>((ref) {
+  final client = ref.watch(appwriteClientProvider);
+  return Account(client);
+});
