@@ -1,22 +1,38 @@
 import 'package:flutter/gestures.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:twitter_clone/features/auth/controllers/auth_controller.dart';
 import 'package:twitter_clone/features/auth/widgets/auth_field.dart';
+import 'package:twitter_clone/utils/utils.dart';
 
 import '../../../routes/route_manager.dart';
 import '../../../utils/common/exports.dart';
 import '../../../utils/constants/constants.dart';
 import '../../../utils/theme/theme.dart';
 
-class SignupView extends StatefulWidget {
+class SignupView extends ConsumerStatefulWidget {
   const SignupView({Key? key}) : super(key: key);
 
   @override
-  State<SignupView> createState() => _SignupViewState();
+  ConsumerState<SignupView> createState() => _SignupViewState();
 }
 
-class _SignupViewState extends State<SignupView> {
+class _SignupViewState extends ConsumerState<SignupView> {
   final TextEditingController _emailCtr = TextEditingController();
   final TextEditingController _passCtr = TextEditingController();
 
+  void signUp(){
+    if(_emailCtr.text.isNotEmpty && _passCtr.text.isNotEmpty){
+      ref.read(authControllerProvider.notifier).
+      signup(
+          email: _emailCtr.text,
+          password: _passCtr.text,
+          context: context
+      );
+    }else{
+      showSnakBacr(context, 'Fill All Fields');
+    }
+
+  }
 
   @override
   void dispose() {
@@ -55,7 +71,7 @@ class _SignupViewState extends State<SignupView> {
                     alignment: Alignment.centerRight,
                     child: RoundedSmallButton(
                       title: 'Done',
-                      onTap: () {  },
+                      onTap: signUp,
                     ),
                   ),
                   SizedBox(
