@@ -16,6 +16,11 @@ abstract class IAuthApi{
   required String email,
   required String password,
   });
+
+  FutureEither<model.Session> login({
+    required String email,
+    required String password,
+  });
 }
 
 class AuthApi implements IAuthApi{
@@ -37,6 +42,12 @@ class AuthApi implements IAuthApi{
     }on AppwriteException catch(e, stackTrace){
       return left(Failure(e.message.toString(), stackTrace));
     }
+  }
+
+  @override
+  FutureEither<model.Session> login({required String email, required String password}) {
+    // TODO: implement login
+    throw UnimplementedError();
   }
 
 }
