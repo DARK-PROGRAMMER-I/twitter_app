@@ -4,7 +4,9 @@ import 'package:twitter_clone/apis/auth/auth_api.dart';
 
 import '../../../utils/utils.dart';
 
-final authControllerProvider = Provider((ref) => null)
+final authControllerProvider = StateNotifierProvider<AuthController, bool>((ref) {
+  return AuthController(authApi: ref.watch(authApiProvider));
+});
 
 class AuthController extends StateNotifier<bool>{
   AuthApi _authApi;
