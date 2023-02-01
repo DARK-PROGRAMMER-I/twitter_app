@@ -4,6 +4,7 @@ import 'package:twitter_clone/core/core.dart';
 import 'package:appwrite/appwrite.dart';
 import 'package:appwrite/models.dart' as model;
 import 'package:twitter_clone/core/providers.dart';
+import 'package:twitter_clone/utils/utils.dart';
 
 final authApiProvider = Provider<AuthApi>((ref) {
   return AuthApi(
@@ -45,9 +46,13 @@ class AuthApi implements IAuthApi{
   }
 
   @override
-  FutureEither<model.Session> login({required String email, required String password}) {
-    // TODO: implement login
-    throw UnimplementedError();
+  FutureEither<model.Session> login({required String email, required String password}) async{
+    try{
+      final session = await _account.createEmailSession(email: email, password: password);
+      return Right(session);
+    }on AppwriteException catch(error, stackTrace){
+      return Left(Failure(error.message ?? 'Some Error Occurred!', stackTrace));
+    }
   }
 
 }
