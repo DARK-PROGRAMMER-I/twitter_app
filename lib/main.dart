@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:twitter_clone/features/auth/controllers/auth_controller.dart';
 import 'package:twitter_clone/features/auth/view/signup_view.dart';
 import 'package:twitter_clone/routes/route_manager.dart';
+import 'package:twitter_clone/utils/common/error_view.dart';
 import 'package:twitter_clone/utils/common/loading_indicator.dart';
 import 'package:twitter_clone/utils/theme/app_theme.dart';
 import 'package:twitter_clone/utils/utils.dart';
@@ -39,9 +40,9 @@ class MyApp extends ConsumerWidget {
                 },
                 error: (error, st){
                   showSnakBacr(context, error.toString());
+                  return ErrorScreen(message: error.toString());
                 },
                 loading: (){
-                  print('Loding roure');
                   return const LoadingScreen();
                 }
             ) , //Routes.signup,

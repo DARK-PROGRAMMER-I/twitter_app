@@ -64,7 +64,6 @@ class AuthController extends StateNotifier<bool>{
             },
             (r) {
             if (kDebugMode) {
-              print(r.userId);
               Navigator.pushNamed(context, Routes.home);
             }
             }
