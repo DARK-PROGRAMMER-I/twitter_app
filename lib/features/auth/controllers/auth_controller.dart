@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:twitter_clone/apis/auth/auth_api.dart';
 
@@ -27,5 +28,25 @@ class AuthController extends StateNotifier<bool>{
             (r){
               debugPrint(r.email);
             });
+  }
+
+  Future<void> login({
+  required String email,
+  required String password,
+  required BuildContext context,
+  })async{
+    state = true;
+    final result  = await _authApi.login(email: email, password: password);
+
+    result.fold(
+            (l) {
+              showSnakBacr(context, l.message);
+            },
+            (r) {
+            if (kDebugMode) {
+              print(r.userId);
+            }
+            }
+    );
   }
 }
