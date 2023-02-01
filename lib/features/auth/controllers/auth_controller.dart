@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:twitter_clone/apis/auth/auth_api.dart';
+import 'package:twitter_clone/routes/route_manager.dart';
 
 import '../../../utils/utils.dart';
 
@@ -13,7 +14,8 @@ final authControllerProvider = StateNotifierProvider<AuthController, bool>((ref)
 
 // Future Provider
 final currentUserAccountProvider = FutureProvider((ref) {
-  return ref.watch(authControllerProvider.notifier).currentUser();
+  final authController = ref.watch(authControllerProvider.notifier);
+  return authController.currentUser();
 });
 
 class AuthController extends StateNotifier<bool>{
@@ -22,8 +24,8 @@ class AuthController extends StateNotifier<bool>{
 
 
   // Current User
-  Future<model.Account?> currentUser()async{
-    return await _authApi.currentUserAccount();
+  Future<model.Account?> currentUser(){
+    return  _authApi.currentUserAccount();
   }
 
 
@@ -42,6 +44,7 @@ class AuthController extends StateNotifier<bool>{
             },
             (r){
               debugPrint(r.email);
+              Navigator.pushNamed(context, Routes.login);
             });
   }
 
@@ -62,6 +65,7 @@ class AuthController extends StateNotifier<bool>{
             (r) {
             if (kDebugMode) {
               print(r.userId);
+              Navigator.pushNamed(context, Routes.home);
             }
             }
     );

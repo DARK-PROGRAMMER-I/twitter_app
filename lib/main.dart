@@ -8,6 +8,8 @@ import 'package:twitter_clone/utils/common/loading_indicator.dart';
 import 'package:twitter_clone/utils/theme/app_theme.dart';
 import 'package:twitter_clone/utils/utils.dart';
 
+import 'features/home/views/home_view.dart';
+
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
@@ -27,18 +29,21 @@ class MyApp extends ConsumerWidget {
             title: 'Flutter Demo',
             debugShowCheckedModeBanner: false,
             theme: AppTheme.theme,
-            initialRoute: ref.watch(currentUserAccountProvider).when(
+            home: ref.watch(currentUserAccountProvider).when(
                 data: (user){
                   if(user != null){
-                    return Routes.home;
+                    return const HomeView();
                   }else{
-                    return Routes.signup;
+                    return const SignupView();
                   }
                 },
                 error: (error, st){
                   showSnakBacr(context, error.toString());
                 },
-                loading: ()=> Routes.loadingPage
+                loading: (){
+                  print('Loding roure');
+                  return const LoadingScreen();
+                }
             ) , //Routes.signup,
             onGenerateRoute: AppRoutes.onGenerateRoute,
           );

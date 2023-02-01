@@ -39,14 +39,20 @@ class AuthApi implements IAuthApi{
   @override
   Future<model.Account?> currentUserAccount()async {
     try{
-      return await _account.get();
+      model.Account account1 = await _account.get();
+      print('Account ${account1}');
+      return account1;
     }on AppwriteException catch(e){
-
       if (kDebugMode) {
         print(e.message);
-        return null;
       }
 
+      return null;
+    } catch (e){
+      if (kDebugMode) {
+        print(e.toString());
+      }
+      return null;
     }
   }
 
