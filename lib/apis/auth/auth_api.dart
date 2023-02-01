@@ -13,11 +13,17 @@ final authApiProvider = Provider<AuthApi>((ref) {
 });
 
 abstract class IAuthApi{
+  // Current User
+  Future<model.Account> currentUserAccount();
+
+  // Signup
   FutureEither<model.Account> signup({
   required String email,
   required String password,
   });
 
+
+  // Login
   FutureEither<model.Session> login({
     required String email,
     required String password,
@@ -27,6 +33,13 @@ abstract class IAuthApi{
 class AuthApi implements IAuthApi{
   final Account _account;
   AuthApi({required Account account}) : _account = account;
+
+  // Current User
+  @override
+  Future<model.Account> currentUserAccount() {
+    // TODO: implement currentUserAccount
+    throw UnimplementedError();
+  }
 
   @override
   FutureEither<model.Account> signup({
@@ -54,5 +67,6 @@ class AuthApi implements IAuthApi{
       return Left(Failure(error.message ?? 'Some Error Occurred!', stackTrace));
     }
   }
+
 
 }
