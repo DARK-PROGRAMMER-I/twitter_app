@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:twitter_clone/features/auth/view/login_view.dart';
 import 'package:twitter_clone/features/auth/view/signup_view.dart';
 import 'package:twitter_clone/features/home/views/home_view.dart';
+import 'package:twitter_clone/utils/common/loading_indicator.dart';
 
 class Routes {
   static const String login = '/login';
   static const String signup = '/signup';
   static const String home = '/home';
+  static const String loadingPage = '/loading-page';
 }
 
 class AppRoutes {
@@ -25,6 +27,11 @@ class AppRoutes {
       case Routes.home:
         return MaterialPageRoute(
           builder: (_) => const HomeView(),
+        );
+
+      case Routes.loadingPage:
+        return MaterialPageRoute(
+          builder: (_) => const LoadingScreen(),
         );
 
       default:

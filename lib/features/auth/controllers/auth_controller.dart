@@ -10,6 +10,11 @@ final authControllerProvider = StateNotifierProvider<AuthController, bool>((ref)
   return AuthController(authApi: ref.watch(authApiProvider));
 });
 
+// Future Provider for checking current user
+final currentUserAccountProvider = FutureProvider((ref) {
+  return ref.watch(authControllerProvider.notifier).currentUser();
+});
+
 class AuthController extends StateNotifier<bool>{
   AuthApi _authApi;
   AuthController({required AuthApi authApi}) : _authApi = authApi, super(false);
