@@ -37,7 +37,7 @@ class AuthController extends StateNotifier<bool>{
   })async{
     state = true;
     final result  = await _authApi.login(email: email, password: password);
-
+    state = false;
     result.fold(
             (l) {
               showSnakBacr(context, l.message);

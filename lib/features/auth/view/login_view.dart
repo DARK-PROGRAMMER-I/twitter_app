@@ -4,6 +4,7 @@ import 'package:twitter_clone/features/auth/controllers/auth_controller.dart';
 import 'package:twitter_clone/features/auth/view/signup_view.dart';
 import 'package:twitter_clone/features/auth/widgets/auth_field.dart';
 import 'package:twitter_clone/routes/route_manager.dart';
+import 'package:twitter_clone/utils/common/loading_indicator.dart';
 import 'package:twitter_clone/utils/utils.dart';
 
 import '../../../utils/common/exports.dart';
@@ -45,10 +46,12 @@ class _LoginViewState extends ConsumerState<LoginView> {
 
   @override
   Widget build(BuildContext context) {
+    final isLoading = ref.watch(authControllerProvider);
     final appbar = UIConstants.appBar();
     return Scaffold(
       appBar: appbar ,
-      body: Center(
+      body:  isLoading ? const LoadingWidget()
+      :Center(
         child: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -73,7 +76,7 @@ class _LoginViewState extends ConsumerState<LoginView> {
                   alignment: Alignment.centerRight,
                   child: RoundedSmallButton(
                     title: 'Done',
-                    onTap: () {  },
+                    onTap: login,
                   ),
                 ),
                 SizedBox(
