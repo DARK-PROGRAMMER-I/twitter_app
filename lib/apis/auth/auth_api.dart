@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:twitter_clone/core/core.dart';
@@ -14,7 +15,7 @@ final authApiProvider = Provider<AuthApi>((ref) {
 
 abstract class IAuthApi{
   // Current User
-  Future<model.Account> currentUserAccount();
+  Future<model.Account?> currentUserAccount();
 
   // Signup
   FutureEither<model.Account> signup({
@@ -36,11 +37,20 @@ class AuthApi implements IAuthApi{
 
   // Current User
   @override
-  Future<model.Account> currentUserAccount() {
-    // TODO: implement currentUserAccount
-    throw UnimplementedError();
+  Future<model.Account?> currentUserAccount()async {
+    try{
+      return await _account.get();
+    }on AppwriteException catch(e){
+
+      if (kDebugMode) {
+        print(e.message);
+        return null;
+      }
+
+    }
   }
 
+  // SignUp
   @override
   FutureEither<model.Account> signup({
     required String email,
@@ -58,6 +68,8 @@ class AuthApi implements IAuthApi{
     }
   }
 
+
+  // Login
   @override
   FutureEither<model.Session> login({required String email, required String password}) async{
     try{
