@@ -6,11 +6,12 @@ import 'package:twitter_clone/apis/auth/auth_api.dart';
 
 import '../../../utils/utils.dart';
 
+// StateNotifierProvider
 final authControllerProvider = StateNotifierProvider<AuthController, bool>((ref) {
   return AuthController(authApi: ref.watch(authApiProvider));
 });
 
-// Future Provider for checking current user
+// Future Provider
 final currentUserAccountProvider = FutureProvider((ref) {
   return ref.watch(authControllerProvider.notifier).currentUser();
 });
