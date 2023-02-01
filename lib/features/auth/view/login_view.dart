@@ -1,21 +1,24 @@
 import 'package:flutter/gestures.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:twitter_clone/features/auth/controllers/auth_controller.dart';
 import 'package:twitter_clone/features/auth/view/signup_view.dart';
 import 'package:twitter_clone/features/auth/widgets/auth_field.dart';
 import 'package:twitter_clone/routes/route_manager.dart';
+import 'package:twitter_clone/utils/utils.dart';
 
 import '../../../utils/common/exports.dart';
 import '../../../utils/constants/constants.dart';
 import '../../../utils/theme/theme.dart';
 
 
-class LoginView extends StatefulWidget {
+class LoginView extends ConsumerStatefulWidget {
   const LoginView({Key? key}) : super(key: key);
 
   @override
-  State<LoginView> createState() => _LoginViewState();
+  ConsumerState<LoginView> createState() => _LoginViewState();
 }
 
-class _LoginViewState extends State<LoginView> {
+class _LoginViewState extends ConsumerState<LoginView> {
   final TextEditingController _emailCtr = TextEditingController();
   final TextEditingController _passCtr = TextEditingController();
 
@@ -25,6 +28,19 @@ class _LoginViewState extends State<LoginView> {
     _emailCtr.dispose();
     _passCtr.dispose();
     super.dispose();
+  }
+
+  void login(){
+    if(_emailCtr.text.isNotEmpty && _passCtr.text.isNotEmpty){
+      ref.read(authControllerProvider.notifier).
+      login(
+          email: _emailCtr.text,
+          password: _passCtr.text,
+          context: context
+      );
+    }else{
+      showSnakBacr(context, 'Fill All Fields');
+    }
   }
 
   @override
