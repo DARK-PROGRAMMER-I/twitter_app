@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:twitter_clone/features/auth/view/login_view.dart';
 import 'package:twitter_clone/features/auth/view/signup_view.dart';
+import 'package:twitter_clone/features/home/views/home_view.dart';
 
 class Routes {
   static const String login = '/login';
   static const String signup = '/signup';
+  static const String home = '/home';
 }
 
 class AppRoutes {
@@ -20,7 +22,10 @@ class AppRoutes {
           builder: (_) => const SignupView(),
         );
 
-
+      case Routes.home:
+        return MaterialPageRoute(
+          builder: (_) => const HomeView(),
+        );
 
       default:
         return unDefinedRoute();

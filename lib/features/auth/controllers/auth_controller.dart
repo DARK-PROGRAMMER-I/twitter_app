@@ -1,3 +1,4 @@
+import 'package:appwrite/models.dart' as model;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -13,6 +14,14 @@ class AuthController extends StateNotifier<bool>{
   AuthApi _authApi;
   AuthController({required AuthApi authApi}) : _authApi = authApi, super(false);
 
+
+  // Current User
+  Future<model.Account?> currentUser()async{
+    return await _authApi.currentUserAccount();
+  }
+
+
+  // SignUp
   Future<void> signup({
   required String email,
   required String password,
@@ -30,6 +39,8 @@ class AuthController extends StateNotifier<bool>{
             });
   }
 
+
+  // Login
   Future<void> login({
   required String email,
   required String password,
