@@ -6,7 +6,7 @@ class UserModel{
   final String profilePic;
   final String bannerPic;
   final String uid;
-  final String isTwitterBlue;
+  final bool isTwitterBlue;
 
   const UserModel({
     required this.email,
@@ -66,7 +66,7 @@ class UserModel{
     String? profilePic,
     String? bannerPic,
     String? uid,
-    String? isTwitterBlue,
+    bool? isTwitterBlue,
   }) {
     return UserModel(
       email: email ?? this.email,
@@ -101,7 +101,7 @@ class UserModel{
       profilePic: map['profilePic'] as String,
       bannerPic: map['bannerPic'] as String,
       uid: map['\$id'] as String,
-      isTwitterBlue: map['isTwitterBlue'] as String,
+      isTwitterBlue: map['isTwitterBlue'] as bool,
     );
   }
 }

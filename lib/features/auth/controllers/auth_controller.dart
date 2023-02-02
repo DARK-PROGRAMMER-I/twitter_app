@@ -58,9 +58,9 @@ class AuthController extends StateNotifier<bool>{
                 bannerPic: '',
                 followers: [],
                 following: [],
-                isTwitterBlue: ,
-                profilePic: ,
-                uid: ,
+                isTwitterBlue: false,
+                profilePic: '',
+                uid: '',
               );
               debugPrint(r.email);
               Navigator.pushNamed(context, Routes.login);
