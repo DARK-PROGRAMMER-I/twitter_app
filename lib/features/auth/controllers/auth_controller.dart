@@ -51,7 +51,7 @@ class AuthController extends StateNotifier<bool>{
             (l){
               showSnakBacr(context, l.message);
             },
-            (r){
+            (r)async{
               UserModel userModel = UserModel(
                 email: email,
                 name: getNameFromEmail(email),
@@ -62,6 +62,11 @@ class AuthController extends StateNotifier<bool>{
                 profilePic: '',
                 uid: '',
               );
+
+              final result = await _userApi.saveUserData(userModel: userModel);
+              result.fold((l) => showSnakBacr(context, l.message), (r) {
+                Navigator.pushNamed(context, Routes.login);
+              });
               debugPrint(r.email);
               Navigator.pushNamed(context, Routes.login);
             });
