@@ -65,10 +65,10 @@ class AuthController extends StateNotifier<bool>{
 
               final result = await _userApi.saveUserData(userModel: userModel);
               result.fold((l) => showSnakBacr(context, l.message), (r) {
-                Navigator.pushNamed(context, Routes.login);
+                // Navigator.pushNamed(context, Routes.login);
               });
               debugPrint(r.email);
-              Navigator.pushNamed(context, Routes.login);
+              // Navigator.pushNamed(context, Routes.login);
             });
   }
 
