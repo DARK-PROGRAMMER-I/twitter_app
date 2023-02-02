@@ -20,7 +20,7 @@ class _HomeViewState extends State<HomeView> {
   int _currentIndex = 0;
   updateIndex(int value){
     setState(() {
-      _
+      _currentIndex
     });
   }
 
