@@ -8,3 +8,7 @@ showSnakBacr(BuildContext context, String content){
     )
   );
 }
+
+String getNameFromEmail(String email){
+
+}
