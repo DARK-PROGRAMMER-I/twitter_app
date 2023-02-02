@@ -51,6 +51,7 @@ class AuthController extends StateNotifier<bool>{
               showSnakBacr(context, l.message);
             },
             (r){
+
               debugPrint(r.email);
               Navigator.pushNamed(context, Routes.login);
             });
