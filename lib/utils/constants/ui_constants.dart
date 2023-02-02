@@ -16,4 +16,6 @@ class UIConstants{
       centerTitle: true,
     );
   }
+
+  List<Widget> bottomTabPages =
 }

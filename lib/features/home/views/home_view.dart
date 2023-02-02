@@ -1,30 +1,51 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:twitter_clone/features/home/controllers/navigation_controller.dart';
 import 'package:twitter_clone/utils/constants/constants.dart';
+import 'package:twitter_clone/utils/theme/pallete.dart';
+import 'package:twitter_clone/utils/theme/pallete.dart';
+import 'package:twitter_clone/utils/theme/pallete.dart';
+import 'package:twitter_clone/utils/theme/pallete.dart';
+import 'package:twitter_clone/utils/theme/pallete.dart';
 
 import '../../../utils/common/exports.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
+
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+  int _currentIndex = 0;
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: UIConstants.appBar(),
+      body: IndexedStack(
+        children: [],
+      ),
       bottomNavigationBar: CupertinoTabBar(
         onTap: (int value){
         },
+        currentIndex: _currentIndex,
         items: [
           BottomNavigationBarItem(
-              icon: SvgPicture.asset(AssetsConstants.homeFilledIcon)
+              icon: _currentIndex == 0 ?
+              SvgPicture.asset(AssetsConstants.homeFilledIcon, color: Pallete.whiteColor,):
+              SvgPicture.asset(AssetsConstants.homeOutlinedIcon, color: Pallete.whiteColor,)
           ),
           BottomNavigationBarItem(
-              icon: SvgPicture.asset(AssetsConstants.homeFilledIcon)
+              icon: _currentIndex == 1 ?
+              SvgPicture.asset(AssetsConstants.searchIcon, color: Pallete.whiteColor,):
+              SvgPicture.asset(AssetsConstants.searchIcon, color: Pallete.whiteColor,)
           ),
           BottomNavigationBarItem(
-              icon: SvgPicture.asset(AssetsConstants.homeFilledIcon)
+              icon: _currentIndex == 2 ?
+              SvgPicture.asset(AssetsConstants.notifFilledIcon, color: Pallete.whiteColor,):
+              SvgPicture.asset(AssetsConstants.notifOutlinedIcon, color: Pallete.whiteColor,)
           )
         ],
       ),
