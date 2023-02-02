@@ -24,9 +24,9 @@ class UserApi implements IUserApi{
 
       return const Right(null);
     }on AppwriteException catch(e, stackTrace){
-      Left(Failure(e.message ?? 'Unexpected Error Occurred!', ))
-    }catch(e){
-
+      return Left(Failure(e.message ?? 'Unexpected Error Occurred!', stackTrace));
+    }catch(e, stackTrace){
+      return Left(Failure(e.toString(), stackTrace));
     }
   }
 
