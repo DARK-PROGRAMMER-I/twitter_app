@@ -12,7 +12,7 @@ import '../../../utils/utils.dart';
 final authControllerProvider = StateNotifierProvider<AuthController, bool>((ref) {
   return AuthController(
       authApi: ref.watch(authApiProvider),
-      userApi: ref.watch(provider) 
+      userApi: ref.watch(userApiProvider)
   );
 });
 

@@ -7,7 +7,7 @@ import 'package:twitter_clone/models/user_models/user_model.dart';
 import 'package:twitter_clone/utils/constants/appwrite_constants.dart';
 
 
-final userApiController = Provider<UserApi>((ref) {
+final userApiProvider = Provider<UserApi>((ref) {
   return UserApi(db: ref.watch(appwriteDatabsesProvider));
 });
 
