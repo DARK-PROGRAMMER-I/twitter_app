@@ -5,7 +5,6 @@ import 'package:twitter_clone/core/core.dart';
 import 'package:appwrite/appwrite.dart';
 import 'package:appwrite/models.dart' as model;
 import 'package:twitter_clone/core/providers.dart';
-import 'package:twitter_clone/utils/utils.dart';
 
 final authApiProvider = Provider<AuthApi>((ref) {
   return AuthApi(

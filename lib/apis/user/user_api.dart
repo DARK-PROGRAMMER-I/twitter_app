@@ -2,11 +2,14 @@ import 'package:appwrite/appwrite.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:twitter_clone/core/core.dart';
+import 'package:twitter_clone/core/providers.dart';
 import 'package:twitter_clone/models/user_models/user_model.dart';
 import 'package:twitter_clone/utils/constants/appwrite_constants.dart';
 
 
-final userApiController = ;
+final userApiController = Provider<UserApi>((ref) {
+  return UserApi(db: ref.watch(appwriteDatabsesProvider));
+});
 
 
 abstract class IUserApi{
