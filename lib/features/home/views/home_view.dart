@@ -32,6 +32,10 @@ class _HomeViewState extends State<HomeView> {
         index: _currentIndex,
         children: UIConstants.bottomTabPages,
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){},
+        child: Icon(Icons.add, color: Pallete.whiteColor, size: 28.spMax,),
+      ),
       bottomNavigationBar: CupertinoTabBar(
         backgroundColor: Pallete.backgroundColor,
         onTap: (int value){
