@@ -27,7 +27,7 @@ class MyApp extends ConsumerWidget {
         splitScreenMode: true,
         builder: (context, child) {
           return MaterialApp(
-            title: 'Flutter Demo',
+            title: 'Twitter Clone',
             debugShowCheckedModeBanner: false,
             theme: AppTheme.theme,
             home: ref.watch(currentUserAccountProvider).when(
