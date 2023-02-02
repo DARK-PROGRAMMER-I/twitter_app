@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:twitter_clone/apis/auth/auth_api.dart';
 import 'package:twitter_clone/apis/user/user_api.dart';
+import 'package:twitter_clone/models/user_models/user_model.dart';
 import 'package:twitter_clone/routes/route_manager.dart';
 
 import '../../../utils/utils.dart';
@@ -51,7 +52,16 @@ class AuthController extends StateNotifier<bool>{
               showSnakBacr(context, l.message);
             },
             (r){
-
+              UserModel userModel = UserModel(
+                email: email,
+                name: getNameFromEmail(email),
+                bannerPic: '',
+                followers: [],
+                following: [],
+                isTwitterBlue: ,
+                profilePic: ,
+                uid: ,
+              );
               debugPrint(r.email);
               Navigator.pushNamed(context, Routes.login);
             });
