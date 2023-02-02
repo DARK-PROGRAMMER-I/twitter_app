@@ -1,8 +1,13 @@
 import 'package:appwrite/appwrite.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:twitter_clone/core/core.dart';
 import 'package:twitter_clone/models/user_models/user_model.dart';
 import 'package:twitter_clone/utils/constants/appwrite_constants.dart';
+
+
+final userApiController = ;
+
 
 abstract class IUserApi{
   FutureEitherVoid saveUserData({required UserModel userModel});
