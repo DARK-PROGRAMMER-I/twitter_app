@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:twitter_clone/features/auth/controllers/auth_controller.dart';
-import 'package:twitter_clone/features/auth/view/signup_view.dart';
+import 'package:twitter_clone/features/auth/view/login_view.dart';
 import 'package:twitter_clone/routes/route_manager.dart';
 import 'package:twitter_clone/utils/common/error_view.dart';
 import 'package:twitter_clone/utils/common/loading_indicator.dart';
@@ -35,7 +35,7 @@ class MyApp extends ConsumerWidget {
                   if(user != null){
                     return const HomeView();
                   }else{
-                    return const SignupView();
+                    return const LoginView();
                   }
                 },
                 error: (error, st){
