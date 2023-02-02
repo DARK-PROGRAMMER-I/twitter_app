@@ -20,7 +20,7 @@ class _HomeViewState extends State<HomeView> {
   int _currentIndex = 0;
   updateIndex(int value){
     setState(() {
-      _currentIndex
+      _currentIndex = value;
     });
   }
 
@@ -33,7 +33,9 @@ class _HomeViewState extends State<HomeView> {
         children: UIConstants.bottomTabPages,
       ),
       bottomNavigationBar: CupertinoTabBar(
+        backgroundColor: Pallete.backgroundColor,
         onTap: (int value){
+          updateIndex(value);
         },
         currentIndex: _currentIndex,
         items: [
