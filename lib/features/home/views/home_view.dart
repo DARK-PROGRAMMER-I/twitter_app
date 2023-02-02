@@ -18,14 +18,19 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   int _currentIndex = 0;
-
+  updateIndex(int value){
+    setState(() {
+      _
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: UIConstants.appBar(),
       body: IndexedStack(
-        children: [],
+        index: _currentIndex,
+        children: UIConstants.bottomTabPages,
       ),
       bottomNavigationBar: CupertinoTabBar(
         onTap: (int value){

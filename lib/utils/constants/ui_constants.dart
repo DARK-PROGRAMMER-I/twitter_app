@@ -17,5 +17,9 @@ class UIConstants{
     );
   }
 
-  List<Widget> bottomTabPages =
+  static List<Widget> bottomTabPages = const [
+    Text('Home'),
+    Text('Search'),
+    Text('Notification'),
+  ];
 }
