@@ -13,6 +13,14 @@ class CreateTweetView extends StatelessWidget {
             onPressed: (){},
             icon: Icon(Icons.close, size: 26.spMax, color: Pallete.whiteColor,),
         ),
+        actions: [
+          RoundedSmallButton(
+              title: 'Tweet',
+              onTap: (){},
+            backColor: Pallete.blueColor,
+            fontColor: Pallete.whiteColor,
+          ),
+        ],
       ),
     );
   }

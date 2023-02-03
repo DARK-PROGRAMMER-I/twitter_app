@@ -21,7 +21,7 @@ class RoundedSmallButton extends StatelessWidget {
         label: Text(
           title,
           style: TextStyle(
-            fontSize: 18.spMax,
+            fontSize: 16.spMax,
             color:fontColor?? Pallete.backgroundColor
           ),
         ),
