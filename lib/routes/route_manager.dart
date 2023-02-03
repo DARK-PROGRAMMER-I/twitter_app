@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:twitter_clone/features/auth/view/login_view.dart';
 import 'package:twitter_clone/features/auth/view/signup_view.dart';
 import 'package:twitter_clone/features/home/views/home_view.dart';
+import 'package:twitter_clone/features/tweet/views/create_tweet_view.dart';
 import 'package:twitter_clone/utils/common/loading_indicator.dart';
 
 class Routes {
@@ -37,7 +38,7 @@ class AppRoutes {
 
       case Routes.createTweet:
         return MaterialPageRoute(
-          builder: (_) => const LoadingScreen(),
+          builder: (_) => const CreateTweetView(),
         );
 
       default:
