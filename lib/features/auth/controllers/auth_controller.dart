@@ -23,6 +23,8 @@ final currentUserAccountProvider = FutureProvider((ref) {
   return authController.currentUser();
 });
 
+
+
 class AuthController extends StateNotifier<bool>{
   AuthApi _authApi;
   UserApi _userApi;
@@ -92,5 +94,11 @@ class AuthController extends StateNotifier<bool>{
             }
             }
     );
+  }
+  
+  Future<UserModel> getUserData(String uid)async{
+    final document = await _userApi.getUserData(uid);
+    final userModel = UserModel.fromMap(document.data);
+    return userModel;
   }
 }
