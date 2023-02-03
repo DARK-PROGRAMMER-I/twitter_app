@@ -9,6 +9,7 @@ class Routes {
   static const String signup = '/signup';
   static const String home = '/home';
   static const String loadingPage = '/loading-page';
+  static const String createTweet = '/create-tweet';
 }
 
 class AppRoutes {
@@ -30,6 +31,11 @@ class AppRoutes {
         );
 
       case Routes.loadingPage:
+        return MaterialPageRoute(
+          builder: (_) => const LoadingScreen(),
+        );
+
+      case Routes.createTweet:
         return MaterialPageRoute(
           builder: (_) => const LoadingScreen(),
         );
