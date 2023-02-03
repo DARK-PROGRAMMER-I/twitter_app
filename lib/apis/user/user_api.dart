@@ -15,7 +15,7 @@ final userApiProvider = Provider<UserApi>((ref) {
 
 abstract class IUserApi{
   FutureEitherVoid saveUserData({required UserModel userModel});
-  Future<model.Account> getUserData(String uid);
+  Future<model.Document> getUserData(String uid);
 }
 
 class UserApi implements IUserApi{
@@ -27,7 +27,7 @@ class UserApi implements IUserApi{
     try{
       await _db.createDocument(
           databaseId: AppwriteConstants.databaseId,
-          collectionId: AppwriteConstants.userDatabaseId,
+          collectionId: AppwriteConstants.userCollectionId,
           documentId: ID.unique(),
           data: userModel.toMap()
       );
@@ -41,8 +41,11 @@ class UserApi implements IUserApi{
   }
 
   @override
-  Future<model.Account> getUserData(String uid) {
-    return _db.getDocument(databaseId: databaseId, collectionId: collectionId, documentId: documentId
+  Future<model.Document> getUserData(String uid) {
+    return _db.getDocument(
+        databaseId: AppwriteConstants.databaseId,
+        collectionId: AppwriteConstants.userCollectionId,
+        documentId: uid
     );
   }
 
