@@ -22,6 +22,9 @@ class CreateTweetView extends StatelessWidget {
           ),
         ],
       ),
+      body: SafeArea(
+        child: SingleChildScrollView,
+      ),
     );
   }
 }
