@@ -25,10 +25,11 @@ class UserApi implements IUserApi{
   @override
   FutureEitherVoid saveUserData({required UserModel userModel}) async {
     try{
+      print(userModel.uid);
       await _db.createDocument(
           databaseId: AppwriteConstants.databaseId,
           collectionId: AppwriteConstants.userCollectionId,
-          documentId: ID.unique(),
+          documentId: userModel.uid,
           data: userModel.toMap()
       );
 

@@ -61,6 +61,7 @@ class AuthController extends StateNotifier<bool>{
     result.fold(
             (l){
               showSnakBacr(context, l.message);
+              print(l.message);
             },
             (r)async{
               UserModel userModel = UserModel(
@@ -71,16 +72,18 @@ class AuthController extends StateNotifier<bool>{
                 following: [],
                 isTwitterBlue: false,
                 profilePic: '',
-                uid: '',
+                uid: r.$id,
               );
 
               final result = await _userApi.saveUserData(userModel: userModel);
               result.fold((l) => showSnakBacr(context, l.message), (r) {
-                // Navigator.pushNamed(context, Routes.login);
+                showSnakBacr(context, 'Collection Created Successfull');
               });
+              Navigator.pushNamed(context, Routes.login);
+              showSnakBacr(context, 'Account Created! Login..');
               debugPrint(r.email);
-              // Navigator.pushNamed(context, Routes.login);
             });
+
   }
 
 
