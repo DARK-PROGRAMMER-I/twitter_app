@@ -1,3 +1,5 @@
+import 'package:twitter_clone/utils/theme/pallete.dart';
+
 import '../../../utils/common/exports.dart';
 
 class CreateTweetView extends StatelessWidget {
@@ -5,6 +7,10 @@ class CreateTweetView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(onPressed: onPressed, icon: icon),
+      ),
+    );
   }
 }

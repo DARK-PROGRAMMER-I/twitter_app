@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:twitter_clone/routes/route_manager.dart';
 import 'package:twitter_clone/utils/constants/constants.dart';
 import 'package:twitter_clone/utils/theme/pallete.dart';
 import 'package:twitter_clone/utils/theme/pallete.dart';
@@ -34,7 +35,7 @@ class _HomeViewState extends State<HomeView> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: (){
-          Navigator.pushNamed(context, Ro)
+          Navigator.pushNamed(context, Routes.createTweet);
         },
         child: Icon(Icons.add, color: Pallete.whiteColor, size: 28.spMax,),
       ),
