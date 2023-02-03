@@ -9,7 +9,10 @@ class CreateTweetView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(onPressed: onPressed, icon: icon),
+        leading: IconButton(
+            onPressed: (){},
+            icon: Icon(Icons.close, size: 26.spMax, color: Pallete.whiteColor,),
+        ),
       ),
     );
   }

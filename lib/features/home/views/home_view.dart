@@ -19,10 +19,15 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   int _currentIndex = 0;
+
   updateIndex(int value){
     setState(() {
       _currentIndex = value;
     });
+  }
+
+  onCreateTweet(){
+    Navigator.pushNamed(context, Routes.createTweet);
   }
 
   @override
@@ -34,9 +39,7 @@ class _HomeViewState extends State<HomeView> {
         children: UIConstants.bottomTabPages,
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: (){
-          Navigator.pushNamed(context, Routes.createTweet);
-        },
+        onPressed: onCreateTweet,
         child: Icon(Icons.add, color: Pallete.whiteColor, size: 28.spMax,),
       ),
       bottomNavigationBar: CupertinoTabBar(
