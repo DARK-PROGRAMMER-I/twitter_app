@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:twitter_clone/features/auth/controllers/auth_controller.dart';
@@ -6,6 +8,7 @@ import 'package:twitter_clone/utils/theme/pallete.dart';
 
 import '../../../utils/common/exports.dart';
 import '../../../utils/constants/asset_constants.dart';
+import '../../../utils/utils.dart';
 import '../widgets/carousal_images.dart';
 
 class CreateTweetView extends ConsumerStatefulWidget {
@@ -16,6 +19,12 @@ class CreateTweetView extends ConsumerStatefulWidget {
 }
 
 class _CreateTweetViewState extends ConsumerState<CreateTweetView> {
+  List<File>? images;
+  pickImages()async{
+    images = await pickMultipleImages();
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     final currentUser = ref.watch(currentUserDetailsProvider).value;
@@ -69,6 +78,7 @@ class _CreateTweetViewState extends ConsumerState<CreateTweetView> {
                   )
                 ],
               ),
+              if(images !=)
               CarousalImages(images: [],)
             ],
           ),
