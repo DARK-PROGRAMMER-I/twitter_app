@@ -29,6 +29,7 @@ final userDetailsProvider  = FutureProvider.family((ref, String uid) {
 });
 
 final currentUserDetailsProvider = FutureProvider((ref) {
+  print(ref.watch(currentUserAccountProvider).value!.$id);
   final currentUserId = ref.watch(currentUserAccountProvider).value!.$id;
   final userDetails = ref.watch(userDetailsProvider(currentUserId));
   return userDetails.value;
