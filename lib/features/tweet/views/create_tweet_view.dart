@@ -78,8 +78,8 @@ class _CreateTweetViewState extends ConsumerState<CreateTweetView> {
                   )
                 ],
               ),
-              if(images !=)
-              CarousalImages(images: [],)
+              if(images != null)
+              const CarousalImages(images: images!,)
             ],
           ),
         ),
