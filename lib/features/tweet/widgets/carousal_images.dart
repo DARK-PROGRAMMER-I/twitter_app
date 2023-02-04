@@ -15,9 +15,10 @@ class CarousalImages extends StatelessWidget {
           return Image.file(file);
         }).toList(),
         options: CarouselOptions(
-          animateToClosest: false,
+          reverse: false,
           autoPlay: false,
-          scrollDirection: Axis.horizontal
+          scrollDirection: Axis.horizontal,
+          enableInfiniteScroll: false
         ));
   }
 }
