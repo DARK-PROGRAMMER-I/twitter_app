@@ -16,7 +16,17 @@ class TweetController extends StateNotifier<bool>{
       showSnakBacr(context, 'Please enter text ... ');
     }
 
+    if(images.isNotEmpty){
+
+    }else{
+
+    }
+
   }
 
+  // This is when we have both images and text
+  _shareImageTweet(){
+
+  }
 
 }
