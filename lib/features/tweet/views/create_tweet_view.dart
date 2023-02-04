@@ -21,14 +21,16 @@ class _CreateTweetViewState extends ConsumerState<CreateTweetView> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-            onPressed: (){},
+            onPressed: (){
+              Navigator.pop(context);
+            },
             icon: Icon(Icons.close, size: 26.spMax, color: Pallete.whiteColor,),
         ),
         actions: [
           RoundedSmallButton(
               title: 'Tweet',
               onTap: (){
-                Navigator.pop(context);
+
               },
             backColor: Pallete.blueColor,
             fontColor: Pallete.whiteColor,
