@@ -17,15 +17,38 @@ class TweetController extends StateNotifier<bool>{
     }
 
     if(images.isNotEmpty){
-
+      _shareImageTweet(
+        context: context,
+        images: images,
+        tweetText: tweetText,
+      );
     }else{
-
+      _shareTextTweet(
+          tweetText: tweetText,
+          context: context,
+      );
     }
 
   }
 
   // This is when we have both images and text
-  _shareImageTweet(){
+  _shareImageTweet({
+    required List<File> images ,
+    required String tweetText,
+    required BuildContext context
+  }){
+  }
+
+
+  // This is when we have text only and no image
+  _shareTextTweet({
+    required String tweetText,
+    required BuildContext context
+  }){
+  }
+
+  // Extract HashTags
+  List<String> extractHashtTags({required String text}){
 
   }
 
