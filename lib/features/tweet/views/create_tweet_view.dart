@@ -6,6 +6,7 @@ import 'package:twitter_clone/utils/theme/pallete.dart';
 
 import '../../../utils/common/exports.dart';
 import '../../../utils/constants/asset_constants.dart';
+import '../widgets/carousal_images.dart';
 
 class CreateTweetView extends ConsumerStatefulWidget {
   const CreateTweetView({Key? key}) : super(key: key);
@@ -68,6 +69,7 @@ class _CreateTweetViewState extends ConsumerState<CreateTweetView> {
                   )
                 ],
               ),
+              CarousalImages(images: [],)
             ],
           ),
         ),
