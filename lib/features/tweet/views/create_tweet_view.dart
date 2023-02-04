@@ -1,9 +1,11 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:twitter_clone/features/auth/controllers/auth_controller.dart';
 import 'package:twitter_clone/utils/common/loading_indicator.dart';
 import 'package:twitter_clone/utils/theme/pallete.dart';
 
 import '../../../utils/common/exports.dart';
+import '../../../utils/constants/asset_constants.dart';
 
 class CreateTweetView extends ConsumerStatefulWidget {
   const CreateTweetView({Key? key}) : super(key: key);
@@ -25,7 +27,9 @@ class _CreateTweetViewState extends ConsumerState<CreateTweetView> {
         actions: [
           RoundedSmallButton(
               title: 'Tweet',
-              onTap: (){},
+              onTap: (){
+                Navigator.pop(context);
+              },
             backColor: Pallete.blueColor,
             fontColor: Pallete.whiteColor,
           ),
@@ -40,11 +44,50 @@ class _CreateTweetViewState extends ConsumerState<CreateTweetView> {
                 children: [
                   CircleAvatar(
                     backgroundImage: NetworkImage(currentUser.profilePic),
+                    radius: 30.r,
+                  ),
+                  SizedBox(width: 20.w,),
+                  Expanded(
+                      child: TextFormField(
+                        style: TextStyle(
+                            fontSize: 20.spMax,
+                            fontWeight: FontWeight.w500
+                        ),
+                        decoration: InputDecoration(
+                          hintText: 'What\'s happening now?',
+                          hintStyle: TextStyle(
+                            fontSize: 20.spMax,
+                            fontWeight: FontWeight.w900
+                          ),
+                          border: InputBorder.none
+                        ),
+                        maxLines: null,
+                      ),
                   )
                 ],
               ),
             ],
           ),
+        ),
+      ),
+      bottomNavigationBar: Container(
+        padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 20.w),
+        decoration: BoxDecoration(
+          border: Border(
+            top: BorderSide(
+              color: Pallete.greyColor,
+              width: 0.9.h
+            )
+          )
+        ),
+        child: Row(
+          children: [
+            SvgPicture.asset(AssetsConstants.galleryIcon, color: Pallete.blueColor,),
+            SizedBox(width: 20.w,),
+            SvgPicture.asset(AssetsConstants.gifIcon, color: Pallete.blueColor,),
+            SizedBox(width: 20.w,),
+            SvgPicture.asset(AssetsConstants.emojiIcon, color: Pallete.blueColor,)
+          ],
         ),
       ),
     );

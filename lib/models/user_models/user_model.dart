@@ -1,8 +1,8 @@
 class UserModel{
   final String email;
   final String name;
-  final List<String> followers;
-  final List<String> following;
+  final List<dynamic> followers;
+  final List<dynamic> following;
   final String profilePic;
   final String bannerPic;
   final String uid;
@@ -61,8 +61,8 @@ class UserModel{
   UserModel copyWith({
     String? email,
     String? name,
-    List<String>? followers,
-    List<String>? following,
+    List<dynamic>? followers,
+    List<dynamic>? following,
     String? profilePic,
     String? bannerPic,
     String? uid,
@@ -96,8 +96,8 @@ class UserModel{
     return UserModel(
       email: map['email'] as String,
       name: map['name'] as String,
-      followers: map['followers'] as List<String>,
-      following: map['following'] as List<String>,
+      followers: map['followers'] as List<dynamic>,
+      following: map['following'] as List<dynamic>,
       profilePic: map['profilePic'] as String,
       bannerPic: map['bannerPic'] as String,
       uid: map['\$id'] as String,
