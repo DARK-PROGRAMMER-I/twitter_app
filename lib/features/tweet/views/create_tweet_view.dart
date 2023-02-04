@@ -79,7 +79,7 @@ class _CreateTweetViewState extends ConsumerState<CreateTweetView> {
                 ],
               ),
               if(images != null)
-              const CarousalImages(images: images!,)
+                CarousalImages(images: images!,)
             ],
           ),
         ),
@@ -96,7 +96,9 @@ class _CreateTweetViewState extends ConsumerState<CreateTweetView> {
         ),
         child: Row(
           children: [
-            SvgPicture.asset(AssetsConstants.galleryIcon, color: Pallete.blueColor,),
+            InkWell(
+                onTap: pickImages,
+                child: SvgPicture.asset(AssetsConstants.galleryIcon, color: Pallete.blueColor,)),
             SizedBox(width: 20.w,),
             SvgPicture.asset(AssetsConstants.gifIcon, color: Pallete.blueColor,),
             SizedBox(width: 20.w,),
