@@ -10,15 +10,19 @@ class CarousalImages extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CarouselSlider(
-        items: images!.map((file) {
-          return Image.file(file);
-        }).toList(),
-        options: CarouselOptions(
-          reverse: false,
-          autoPlay: false,
-          scrollDirection: Axis.horizontal,
-          enableInfiniteScroll: false
-        ));
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 10.w),
+      child: CarouselSlider(
+          items: images!.map((file) {
+            return Image.file(file);
+          }).toList(),
+          options: CarouselOptions(
+            height: 400.h,
+            reverse: false,
+            autoPlay: false,
+            scrollDirection: Axis.horizontal,
+            enableInfiniteScroll: false
+          )),
+    );
   }
 }
