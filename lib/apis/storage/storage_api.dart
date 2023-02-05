@@ -9,7 +9,7 @@ class StorageApi{
 
   Future<List<String>> uploadImages(List<File> files){
     try{
-      List<String>
+      List<String> images = [];
     }catch(e){
       if (kDebugMode) {
         print(e.toString());
