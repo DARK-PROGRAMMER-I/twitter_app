@@ -22,7 +22,7 @@ class TweetController extends StateNotifier<bool>{
         _tweetApi = tweetApi,
         super(false);
 
-  shareTweet({
+  void shareTweet({
     required List<File> images ,
     required String tweetText,
     required BuildContext context
@@ -57,7 +57,7 @@ class TweetController extends StateNotifier<bool>{
 
 
   // This is when we have text only and no image
-  _shareTextTweet({
+  Future<void> _shareTextTweet({
     required String tweetText,
     required BuildContext context
   })async{
