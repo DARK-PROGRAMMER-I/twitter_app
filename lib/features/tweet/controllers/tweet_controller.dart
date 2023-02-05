@@ -27,6 +27,7 @@ class TweetController extends StateNotifier<bool>{
     required String tweetText,
     required BuildContext context
   }){
+    state = true;
     if(tweetText.isEmpty){
       showSnakBar(context, 'Please enter text ... ');
     }
@@ -37,11 +38,13 @@ class TweetController extends StateNotifier<bool>{
         images: images,
         tweetText: tweetText,
       );
+      state = false;
     }else{
       _shareTextTweet(
           tweetText: tweetText,
           context: context,
       );
+      state = false;
     }
 
   }
