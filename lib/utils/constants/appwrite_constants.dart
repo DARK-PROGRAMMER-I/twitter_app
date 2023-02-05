@@ -10,5 +10,5 @@ class AppwriteConstants {
 
   static const String imageBucketId = "63dfa0eb5f81ccf78df4";
   static String generateImageUrl(String id)=>
-  'http://localhost/v1/storage/buckets/63dfa0eb5f81ccf78df4/files/63dfa18084bbcb59b8e0/view?project=63d769b68ed50129f51b&mode=admin';
+  '$endPoint/storage/buckets/$imageBucketId/files/$id/view?project=$projectId&mode=admin';
 }

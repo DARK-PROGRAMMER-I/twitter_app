@@ -1,29 +1,27 @@
 import 'dart:io';
-
 import 'package:appwrite/appwrite.dart';
-import 'package:flutter/foundation.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:twitter_clone/utils/constants/appwrite_constants.dart';
+
+final storageApiProvider = Provider<StorageApi>((ref) =>
+    StorageApi(storage: storage)
+);
 
 class StorageApi{
   Storage _storage;
   StorageApi({required Storage storage}) : _storage = storage;
 
   Future<List<String>> uploadImages(List<File> files)async{
-    try{
-      List<String> images = [];
-      for(File file in files){
-        final imageUrl = await _storage.createFile(
-            bucketId: AppwriteConstants.imageBucketId,
-            fileId: ID.unique(),
-            file: InputFile(path: file.path)
-        );
-
-
-      }
-    }catch(e){
-      if (kDebugMode) {
-        print(e.toString());
-      }
+    List<String> images = [];
+    for(File file in files){
+      final imageUrl = await _storage.createFile(
+          bucketId: AppwriteConstants.imageBucketId,
+          fileId: ID.unique(),
+          file: InputFile(path: file.path)
+      );
+      images.add(AppwriteConstants.generateImageUrl(imageUrl.$id));
     }
+
+    return images;
   }
 }

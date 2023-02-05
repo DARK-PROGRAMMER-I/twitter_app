@@ -8,6 +8,7 @@ import 'package:twitter_clone/features/auth/controllers/auth_controller.dart';
 import 'package:twitter_clone/models/tweet_models/tweet_model.dart';
 import 'package:twitter_clone/utils/utils.dart';
 
+import '../../../apis/storage/storage_api.dart';
 import '../../../models/user_models/user_model.dart';
 
 final tweetControllerProvider = StateNotifierProvider<TweetController, bool>((ref) {
@@ -17,9 +18,11 @@ final tweetControllerProvider = StateNotifierProvider<TweetController, bool>((re
 class TweetController extends StateNotifier<bool>{
   final Ref _ref ;
   final TweetApi _tweetApi ;
-  TweetController({required Ref ref, required TweetApi tweetApi}) :
+  final StorageApi _storageApi ;
+  TweetController({required Ref ref, required TweetApi tweetApi, required StorageApi storageApi}) :
         _ref = ref,
         _tweetApi = tweetApi,
+        _storageApi = storageApi,
         super(false);
 
   void shareTweet({
