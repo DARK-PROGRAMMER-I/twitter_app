@@ -36,7 +36,7 @@ class _CreateTweetViewState extends ConsumerState<CreateTweetView> {
   @override
   Widget build(BuildContext context) {
     final currentUser = ref.watch(currentUserDetailsProvider).value;
-    final tweetState = ref.watch(tweetControllerProvider.notifier).state;
+    final isLoading = ref.watch(tweetControllerProvider);
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -46,7 +46,6 @@ class _CreateTweetViewState extends ConsumerState<CreateTweetView> {
             icon: Icon(Icons.close, size: 26.spMax, color: Pallete.whiteColor,),
         ),
         actions: [
-          tweetState ? const LoadingWidget():
           RoundedSmallButton(
               title: 'Tweet',
               onTap: shareTweet,
@@ -55,7 +54,7 @@ class _CreateTweetViewState extends ConsumerState<CreateTweetView> {
           ),
         ],
       ),
-      body: currentUser== null ? const LoadingWidget()
+      body:isLoading || currentUser== null ? const LoadingWidget()
       :SafeArea(
         child: SingleChildScrollView(
           child: Column(

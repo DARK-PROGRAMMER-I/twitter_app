@@ -27,7 +27,7 @@ class TweetController extends StateNotifier<bool>{
     required String tweetText,
     required BuildContext context
   }){
-    state = true;
+
     if(tweetText.isEmpty){
       showSnakBar(context, 'Please enter text ... ');
     }
@@ -38,13 +38,11 @@ class TweetController extends StateNotifier<bool>{
         images: images,
         tweetText: tweetText,
       );
-      state = false;
     }else{
       _shareTextTweet(
           tweetText: tweetText,
           context: context,
       );
-      state = false;
     }
 
   }
@@ -63,6 +61,7 @@ class TweetController extends StateNotifier<bool>{
     required String tweetText,
     required BuildContext context
   })async{
+    state = true;
     final List<String> hashtags = _extractHashtTags(text: tweetText);
     final String link = _extractLinks(text: tweetText);
     final UserModel? user = _ref.read(currentUserDetailsProvider).value;
@@ -81,11 +80,12 @@ class TweetController extends StateNotifier<bool>{
     );
 
     final result = await _tweetApi.shareTweet(tweetModel: tweetModel);
+    state = false;
     result.fold(
       (l) {
       showSnakBar(context, l.message);
     }, (r) {
-
+        showSnakBar(context, 'Tweeted!');
     });
   }
 
