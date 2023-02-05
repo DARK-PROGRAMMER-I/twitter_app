@@ -3,7 +3,7 @@ import 'package:twitter_clone/core/enums/tweet_type.dart';
 class TweetModel{
   final String text;
   final List<String> hashTags;
-  final List<String> links;
+  final String link;
   final List<String> imageLinks;
   final String uid;
   final TweetType tweetType;
@@ -17,7 +17,7 @@ class TweetModel{
   const TweetModel({
     required this.text,
     required this.hashTags,
-    required this.links,
+    required this.link,
     required this.imageLinks,
     required this.uid,
     required this.tweetType,
@@ -35,7 +35,7 @@ class TweetModel{
           runtimeType == other.runtimeType &&
           text == other.text &&
           hashTags == other.hashTags &&
-          links == other.links &&
+          link == other.link &&
           imageLinks == other.imageLinks &&
           uid == other.uid &&
           tweetType == other.tweetType &&
@@ -49,7 +49,7 @@ class TweetModel{
   int get hashCode =>
       text.hashCode ^
       hashTags.hashCode ^
-      links.hashCode ^
+      link.hashCode ^
       imageLinks.hashCode ^
       uid.hashCode ^
       tweetType.hashCode ^
@@ -64,7 +64,7 @@ class TweetModel{
     return 'TweetModel{' +
         ' text: $text,' +
         ' hashTags: $hashTags,' +
-        ' links: $links,' +
+        ' link: $link,' +
         ' imageLinks: $imageLinks,' +
         ' uid: $uid,' +
         ' tweetType: $tweetType,' +
@@ -79,7 +79,7 @@ class TweetModel{
   TweetModel copyWith({
     String? text,
     List<String>? hashTags,
-    List<String>? links,
+    String? link,
     List<String>? imageLinks,
     String? uid,
     TweetType? tweetType,
@@ -92,7 +92,7 @@ class TweetModel{
     return TweetModel(
       text: text ?? this.text,
       hashTags: hashTags ?? this.hashTags,
-      links: links ?? this.links,
+      link: link ?? this.link,
       imageLinks: imageLinks ?? this.imageLinks,
       uid: uid ?? this.uid,
       tweetType: tweetType ?? this.tweetType,
@@ -108,7 +108,7 @@ class TweetModel{
     return {
       'text': this.text,
       'hashTags': this.hashTags,
-      'links': this.links,
+      'link': this.link,
       'imageLinks': this.imageLinks,
       'uid': this.uid,
       'tweetType': this.tweetType.type,
@@ -124,7 +124,7 @@ class TweetModel{
     return TweetModel(
       text: map['text'] as String,
       hashTags: map['hashTags'] as List<String>,
-      links: map['links'] as List<String>,
+      link: map['link'] as String,
       imageLinks: map['imageLinks'] as List<String>,
       uid: map['uid'] as String,
       tweetType: (map['tweetType'] as String).toTweetTypeEnum(),
