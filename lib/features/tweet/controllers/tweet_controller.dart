@@ -48,7 +48,7 @@ class TweetController extends StateNotifier<bool>{
   }
 
   // Extract HashTags
-  List<String> extractHashtTags({required String text}){
+  List<String> _extractHashtTags({required String text}){
     List<String> hashes = [];
     List<String> splittedText = text.split(' ');
     splittedText.forEach((element) {
@@ -60,12 +60,12 @@ class TweetController extends StateNotifier<bool>{
   }
 
   // Extract Links
-  List<String> extractLinks({required String text}){
-    List<String> links = [];
+  String _extractLinks({required String text}){
+    String links = '';
     List<String> splittedText = text.split(' ');
     splittedText.forEach((element) {
       if(element.startsWith('www.') || element.startsWith('http')){
-        links.add(element);
+        links = element;
       }
     });
     return links;
