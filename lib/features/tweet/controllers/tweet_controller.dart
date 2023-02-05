@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:twitter_clone/apis/tweet/tweet_api.dart';
 import 'package:twitter_clone/core/enums/tweet_type.dart';
 import 'package:twitter_clone/features/auth/controllers/auth_controller.dart';
 import 'package:twitter_clone/models/tweet_models/tweet_model.dart';
@@ -9,10 +10,16 @@ import 'package:twitter_clone/utils/utils.dart';
 
 import '../../../models/user_models/user_model.dart';
 
+final tweetControllerProvider = StateNotifierProvider<TweetController, bool>((ref) {
+
+});
+
 class TweetController extends StateNotifier<bool>{
   final Ref _ref ;
-  TweetController({required Ref ref}) :
+  final TweetApi _tweetApi ;
+  TweetController({required Ref ref, required TweetApi tweetApi}) :
         _ref = ref,
+        _tweetApi = tweetApi,
         super(false);
 
   shareTweet({
@@ -21,7 +28,7 @@ class TweetController extends StateNotifier<bool>{
     required BuildContext context
   }){
     if(tweetText.isEmpty){
-      showSnakBacr(context, 'Please enter text ... ');
+      showSnakBar(context, 'Please enter text ... ');
     }
 
     if(images.isNotEmpty){
@@ -52,7 +59,7 @@ class TweetController extends StateNotifier<bool>{
   _shareTextTweet({
     required String tweetText,
     required BuildContext context
-  }){
+  })async{
     final List<String> hashtags = _extractHashtTags(text: tweetText);
     final String link = _extractLinks(text: tweetText);
     final UserModel? user = _ref.read(currentUserDetailsProvider).value;
@@ -70,6 +77,13 @@ class TweetController extends StateNotifier<bool>{
         reshareCount: 0
     );
 
+    final result = await _tweetApi.shareTweet(tweetModel: tweetModel);
+    result.fold(
+      (l) {
+      showSnakBar(context, l.message);
+    }, (r) {
+
+    });
   }
 
   // Extract HashTags

@@ -39,7 +39,7 @@ class MyApp extends ConsumerWidget {
                   }
                 },
                 error: (error, st){
-                  showSnakBacr(context, error.toString());
+                  showSnakBar(context, error.toString());
                   return ErrorScreen(message: error.toString());
                 },
                 loading: (){

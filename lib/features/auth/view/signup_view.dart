@@ -30,7 +30,7 @@ class _SignupViewState extends ConsumerState<SignupView> {
           context: context
       );
     }else{
-      showSnakBacr(context, 'Fill All Fields');
+      showSnakBar(context, 'Fill All Fields');
     }
 
   }

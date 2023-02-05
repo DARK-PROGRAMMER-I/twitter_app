@@ -60,7 +60,7 @@ class AuthController extends StateNotifier<bool>{
     state = false;
     result.fold(
             (l){
-              showSnakBacr(context, l.message);
+              showSnakBar(context, l.message);
               print(l.message);
             },
             (r)async{
@@ -76,11 +76,11 @@ class AuthController extends StateNotifier<bool>{
               );
 
               final result = await _userApi.saveUserData(userModel: userModel);
-              result.fold((l) => showSnakBacr(context, l.message), (r) {
-                showSnakBacr(context, 'Collection Created Successfull');
+              result.fold((l) => showSnakBar(context, l.message), (r) {
+                showSnakBar(context, 'Collection Created Successfull');
               });
               Navigator.pushNamed(context, Routes.login);
-              showSnakBacr(context, 'Account Created! Login..');
+              showSnakBar(context, 'Account Created! Login..');
               debugPrint(r.email);
             });
 
@@ -98,7 +98,7 @@ class AuthController extends StateNotifier<bool>{
     state = false;
     result.fold(
             (l) {
-              showSnakBacr(context, l.message);
+              showSnakBar(context, l.message);
             },
             (r) {
             if (kDebugMode) {

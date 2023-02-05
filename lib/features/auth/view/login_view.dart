@@ -40,7 +40,7 @@ class _LoginViewState extends ConsumerState<LoginView> {
           context: context
       );
     }else{
-      showSnakBacr(context, 'Fill All Fields');
+      showSnakBar(context, 'Fill All Fields');
     }
   }
 
