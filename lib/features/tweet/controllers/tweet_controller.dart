@@ -5,7 +5,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:twitter_clone/utils/utils.dart';
 
 class TweetController extends StateNotifier<bool>{
-  TweetController() : super(false);
+  final Ref _ref ;
+  TweetController({required Ref ref}) :
+        _ref = ref,
+        super(false);
 
   shareTweet({
     required List<File> images ,
@@ -45,6 +48,9 @@ class TweetController extends StateNotifier<bool>{
     required String tweetText,
     required BuildContext context
   }){
+    final List<String> hashtags = _extractHashtTags(text: tweetText);
+    final String link = _extractLinks(text: tweetText);
+    final String uid =
   }
 
   // Extract HashTags
