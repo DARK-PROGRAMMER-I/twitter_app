@@ -70,7 +70,7 @@ class TweetController extends StateNotifier<bool>{
         link: link,
         imageLinks: await _storageApi.uploadImages(images),
         uid: user?.uid ?? '',
-        tweetType: TweetType.text,
+        tweetType: TweetType.image,
         tweetAt: DateTime.now(),
         likes: [],
         commentIds: [],
