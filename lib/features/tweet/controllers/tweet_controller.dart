@@ -50,7 +50,7 @@ class TweetController extends StateNotifier<bool>{
   }){
     final List<String> hashtags = _extractHashtTags(text: tweetText);
     final String link = _extractLinks(text: tweetText);
-    final String uid =
+    final String uid = _ref.read();
   }
 
   // Extract HashTags
