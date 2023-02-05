@@ -55,7 +55,7 @@ class TweetController extends StateNotifier<bool>{
   }
 
   // This is when we have both images and text
-  _shareImageTweet({
+  Future<void> _shareImageTweet({
     required List<File> images ,
     required String tweetText,
     required BuildContext context
