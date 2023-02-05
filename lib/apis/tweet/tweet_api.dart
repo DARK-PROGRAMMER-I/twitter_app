@@ -24,7 +24,7 @@ class TweetApi implements ITweetApi{
   FutureEither<Document> shareTweet({required TweetModel tweetModel}) async{
     try{
       final document  = await _db.createDocument(
-          databaseId: AppwriteConstants.projectId,
+          databaseId: AppwriteConstants.databaseId,
           collectionId: AppwriteConstants.tweetCollectionId,
           documentId: ID.unique(),
           data: tweetModel.toMap()

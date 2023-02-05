@@ -30,7 +30,7 @@ class _CreateTweetViewState extends ConsumerState<CreateTweetView> {
 
   shareTweet(){
     final tweetCtr = ref.read(tweetControllerProvider.notifier);
-    tweetCtr.shareTweet(images: [], tweetText: _tweetCtr.text, context: context)
+    tweetCtr.shareTweet(images: [], tweetText: _tweetCtr.text, context: context);
   }
 
   @override
@@ -47,9 +47,7 @@ class _CreateTweetViewState extends ConsumerState<CreateTweetView> {
         actions: [
           RoundedSmallButton(
               title: 'Tweet',
-              onTap: (){
-
-              },
+              onTap: shareTweet,
             backColor: Pallete.blueColor,
             fontColor: Pallete.whiteColor,
           ),
