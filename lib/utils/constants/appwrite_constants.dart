@@ -5,4 +5,5 @@ class AppwriteConstants {
 
 
   static const String userCollectionId = "63dbc3454c09d7d90a34";
+  static const String tweetCollectionId = "63df53915fb0fc22c83e";
 }

@@ -112,10 +112,9 @@ class TweetModel{
       'imageLinks': this.imageLinks,
       'uid': this.uid,
       'tweetType': this.tweetType.type,
-      'tweetAt': this.tweetAt,
+      'tweetAt': this.tweetAt.millisecondsSinceEpoch,
       'likes': this.likes,
       'commentIds': this.commentIds,
-      'tweetId': this.tweetId,
       'reshareCount': this.reshareCount,
     };
   }
@@ -131,7 +130,7 @@ class TweetModel{
       tweetAt: map['tweetAt'] as DateTime,
       likes: map['likes'] as List<String>,
       commentIds: map['commentIds'] as List<String>,
-      tweetId: map['tweetId'] as String,
+      tweetId: map['\$id'] as String,
       reshareCount: map['reshareCount'] as int,
     );
   }
