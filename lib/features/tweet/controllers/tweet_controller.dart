@@ -59,7 +59,7 @@ class TweetController extends StateNotifier<bool>{
     required List<File> images ,
     required String tweetText,
     required BuildContext context
-  }){
+  })async{
     state = true;
     final List<String> hashtags = _extractHashtTags(text: tweetText);
     final String link = _extractLinks(text: tweetText);
@@ -68,7 +68,7 @@ class TweetController extends StateNotifier<bool>{
         text: tweetText,
         hashTags: hashtags,
         link: link,
-        imageLinks: [],
+        imageLinks: await _storageApi.uploadImages(images),
         uid: user?.uid ?? '',
         tweetType: TweetType.text,
         tweetAt: DateTime.now(),
@@ -77,6 +77,13 @@ class TweetController extends StateNotifier<bool>{
         tweetId: '',
         reshareCount: 0
     );
+
+    final result = await _tweetApi.shareTweet(tweetModel: tweetModel);
+    result.fold((l) {
+
+    }, (r){
+
+    });
   }
 
 
