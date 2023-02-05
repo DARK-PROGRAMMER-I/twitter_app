@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:twitter_clone/features/auth/controllers/auth_controller.dart';
+import 'package:twitter_clone/features/tweet/controllers/tweet_controller.dart';
 import 'package:twitter_clone/utils/common/loading_indicator.dart';
 import 'package:twitter_clone/utils/theme/pallete.dart';
 
@@ -19,10 +20,17 @@ class CreateTweetView extends ConsumerStatefulWidget {
 }
 
 class _CreateTweetViewState extends ConsumerState<CreateTweetView> {
+  Te
+
   List<File>? images;
   pickImages()async{
     images = await pickMultipleImages();
     setState(() {});
+  }
+
+  shareTweet(){
+    final tweetCtr = ref.read(tweetControllerProvider.notifier);
+    tweetCtr.shareTweet(images: [], tweetText: , context: context)
   }
 
   @override
