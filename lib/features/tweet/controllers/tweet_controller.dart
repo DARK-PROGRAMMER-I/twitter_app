@@ -11,7 +11,7 @@ import 'package:twitter_clone/utils/utils.dart';
 import '../../../models/user_models/user_model.dart';
 
 final tweetControllerProvider = StateNotifierProvider<TweetController, bool>((ref) {
-
+  return
 });
 
 class TweetController extends StateNotifier<bool>{
