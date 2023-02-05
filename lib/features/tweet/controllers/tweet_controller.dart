@@ -105,8 +105,10 @@ class TweetController extends StateNotifier<bool>{
   String _extractLinks({required String text}){
     String links = '';
     List<String> splittedText = text.split(' ');
+
     splittedText.forEach((element) {
-      if(element.startsWith('www.') || element.startsWith('http')){
+      if(element.startsWith('www') || element.startsWith('http')){
+        print(element);
         links = element;
       }
     });
