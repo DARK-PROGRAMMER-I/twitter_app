@@ -79,10 +79,12 @@ class TweetController extends StateNotifier<bool>{
     );
 
     final result = await _tweetApi.shareTweet(tweetModel: tweetModel);
-    result.fold((l) {
-
+    state = false;
+    result.fold(
+      (l) {
+        showSnakBar(context, l.message);
     }, (r){
-
+        showSnakBar(context, 'image based tweet successfull');
     });
   }
 
