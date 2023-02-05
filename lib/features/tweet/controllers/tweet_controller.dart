@@ -12,7 +12,11 @@ import '../../../apis/storage/storage_api.dart';
 import '../../../models/user_models/user_model.dart';
 
 final tweetControllerProvider = StateNotifierProvider<TweetController, bool>((ref) {
-  return TweetController(ref: ref, tweetApi: ref.watch(tweetApiProvider));
+  return TweetController(
+      ref: ref,
+      tweetApi: ref.watch(tweetApiProvider),
+      storageApi: ref.watch(storageApiProvider)
+  );
 });
 
 class TweetController extends StateNotifier<bool>{

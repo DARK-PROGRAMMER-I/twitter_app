@@ -3,9 +3,10 @@ import 'package:appwrite/appwrite.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:twitter_clone/utils/constants/appwrite_constants.dart';
 
+import '../../core/providers.dart';
+
 final storageApiProvider = Provider<StorageApi>((ref) =>
-    StorageApi(storage: storage)
-);
+    StorageApi(storage: ref.watch(appwriteStorageProvider)));
 
 class StorageApi{
   Storage _storage;
