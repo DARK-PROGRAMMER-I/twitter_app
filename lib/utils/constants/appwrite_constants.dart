@@ -6,4 +6,9 @@ class AppwriteConstants {
 
   static const String userCollectionId = "63dbc3454c09d7d90a34";
   static const String tweetCollectionId = "63df53915fb0fc22c83e";
+
+
+  static const String imageBucketId = "63dfa0eb5f81ccf78df4";
+  static String generateImageUrl(String id)=>
+  'http://localhost/v1/storage/buckets/63dfa0eb5f81ccf78df4/files/63dfa18084bbcb59b8e0/view?project=63d769b68ed50129f51b&mode=admin';
 }
