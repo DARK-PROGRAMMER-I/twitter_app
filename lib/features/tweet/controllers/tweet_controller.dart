@@ -67,8 +67,9 @@ class TweetController extends StateNotifier<bool>{
         likes: [],
         commentIds: [],
         tweetId: '',
-        reshareCount: reshareCount
+        reshareCount: 0
     );
+
   }
 
   // Extract HashTags
