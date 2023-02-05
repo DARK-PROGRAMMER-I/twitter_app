@@ -20,7 +20,7 @@ class CreateTweetView extends ConsumerStatefulWidget {
 }
 
 class _CreateTweetViewState extends ConsumerState<CreateTweetView> {
-  Te
+  TextEditingController _tweetCtr = TextEditingController();
 
   List<File>? images;
   pickImages()async{
@@ -30,7 +30,7 @@ class _CreateTweetViewState extends ConsumerState<CreateTweetView> {
 
   shareTweet(){
     final tweetCtr = ref.read(tweetControllerProvider.notifier);
-    tweetCtr.shareTweet(images: [], tweetText: , context: context)
+    tweetCtr.shareTweet(images: [], tweetText: _tweetCtr.text, context: context)
   }
 
   @override
@@ -69,6 +69,7 @@ class _CreateTweetViewState extends ConsumerState<CreateTweetView> {
                   SizedBox(width: 20.w,),
                   Expanded(
                       child: TextFormField(
+                        controller: _tweetCtr,
                         style: TextStyle(
                             fontSize: 20.spMax,
                             fontWeight: FontWeight.w500
