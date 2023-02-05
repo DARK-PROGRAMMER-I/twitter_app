@@ -53,6 +53,23 @@ class TweetController extends StateNotifier<bool>{
     required String tweetText,
     required BuildContext context
   }){
+    state = true;
+    final List<String> hashtags = _extractHashtTags(text: tweetText);
+    final String link = _extractLinks(text: tweetText);
+    final user = _ref.watch(currentUserDetailsProvider).value;
+    TweetModel tweetModel = TweetModel(
+        text: tweetText,
+        hashTags: hashtags,
+        link: link,
+        imageLinks: [],
+        uid: user?.uid ?? '',
+        tweetType: TweetType.text,
+        tweetAt: DateTime.now(),
+        likes: [],
+        commentIds: [],
+        tweetId: '',
+        reshareCount: 0
+    );
   }
 
 
