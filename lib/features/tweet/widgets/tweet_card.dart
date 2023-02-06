@@ -21,7 +21,7 @@ class TweetCardWidget extends ConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20),
+                padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 15.w),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -36,13 +36,23 @@ class TweetCardWidget extends ConsumerWidget {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  user.name,
-                                  style: getBoldStyle(color: Pallete.whiteColor, fontSize: 20.spMax),
+                                Row(
+                                  children: [
+                                    Text(
+                                      user.name,
+                                      style: getBoldStyle(color: Pallete.whiteColor, fontSize: 18.spMax),
+                                    ),
+                                    Text(
+                                      ' @${user.name}',
+                                      style: getRegularStyle(color: Pallete.greyColor, fontSize: 16.spMax),
+                                    ),
+                                  ],
                                 ),
                                 HashTaggedText(text: tweet.text,),
                               ],
-                            )))
+                            ),
+                        ),
+                    )
                   ],
                 ),
               )
