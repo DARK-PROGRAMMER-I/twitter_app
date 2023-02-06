@@ -2,14 +2,14 @@ import 'package:twitter_clone/core/enums/tweet_type.dart';
 
 class TweetModel{
   final String text;
-  final List<String> hashTags;
+  final List<dynamic> hashTags;
   final String link;
-  final List<String> imageLinks;
+  final List<dynamic> imageLinks;
   final String uid;
   final TweetType tweetType;
   final DateTime tweetAt;
-  final List<String> likes;
-  final List<String> commentIds;
+  final List<dynamic> likes;
+  final List<dynamic> commentIds;
   final String tweetId;
   final int reshareCount;
 
@@ -78,14 +78,14 @@ class TweetModel{
 
   TweetModel copyWith({
     String? text,
-    List<String>? hashTags,
+    List<dynamic>? hashTags,
     String? link,
-    List<String>? imageLinks,
+    List<dynamic>? imageLinks,
     String? uid,
     TweetType? tweetType,
     DateTime? tweetAt,
-    List<String>? likes,
-    List<String>? commentIds,
+    List<dynamic>? likes,
+    List<dynamic>? commentIds,
     String? tweetId,
     int? reshareCount,
   }) {
@@ -122,14 +122,14 @@ class TweetModel{
   factory TweetModel.fromMap(Map<String, dynamic> map) {
     return TweetModel(
       text: map['text'] as String,
-      hashTags: map['hashTags'] as List<String>,
+      hashTags: map['hashTags'] as List<dynamic>,
       link: map['link'] as String,
-      imageLinks: map['imageLinks'] as List<String>,
+      imageLinks: map['imageLinks'] as List<dynamic>,
       uid: map['uid'] as String,
       tweetType: (map['tweetType'] as String).toTweetTypeEnum(),
-      tweetAt: map['tweetAt'] as DateTime,
-      likes: map['likes'] as List<String>,
-      commentIds: map['commentIds'] as List<String>,
+      tweetAt: DateTime.fromMillisecondsSinceEpoch(map['tweetAt']),
+      likes: map['likes'] as List<dynamic>,
+      commentIds: map['commentIds'] as List<dynamic>,
       tweetId: map['\$id'] as String,
       reshareCount: map['reshareCount'] as int,
     );
