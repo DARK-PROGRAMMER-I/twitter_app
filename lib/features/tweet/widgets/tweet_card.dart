@@ -1,8 +1,10 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:twitter_clone/features/auth/controllers/auth_controller.dart';
 import 'package:twitter_clone/models/tweet_models/tweet_model.dart';
+import 'package:twitter_clone/utils/common/styles_manager.dart';
 
 import '../../../utils/common/exports.dart';
+import '../../../utils/theme/pallete.dart';
 import 'hash_tagged_text.dart';
 
 class TweetCardWidget extends ConsumerWidget {
@@ -36,7 +38,7 @@ class TweetCardWidget extends ConsumerWidget {
                               children: [
                                 Text(
                                   user.name,
-                                  style: ,
+                                  style: getBoldStyle(color: Pallete.whiteColor, fontSize: 20.spMax),
                                 ),
                                 HashTaggedText(text: tweet.text,),
                               ],
