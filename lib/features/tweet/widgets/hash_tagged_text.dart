@@ -31,7 +31,7 @@ class HashTaggedText extends StatelessWidget {
                     fontWeight: FontWeight.normal,
                     fontSize: 14.spMax
                 ),
-              recognizer:
+
             ));
       }
     else{

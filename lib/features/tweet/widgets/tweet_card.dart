@@ -1,3 +1,4 @@
+import 'package:any_link_preview/any_link_preview.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:twitter_clone/core/enums/tweet_type.dart';
 import 'package:twitter_clone/features/auth/controllers/auth_controller.dart';
@@ -59,6 +60,13 @@ class TweetCardWidget extends ConsumerWidget {
                                   ],
                                 ),
                                 HashTaggedText(text: tweet.text,),
+                                SizedBox(height: 10.h,),
+                                if(tweet.link.isNotEmpty)
+                                Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20.r)
+                                    ),
+                                    child: AnyLinkPreview(link: tweet.link))
                               ],
                             ),
                         ),
