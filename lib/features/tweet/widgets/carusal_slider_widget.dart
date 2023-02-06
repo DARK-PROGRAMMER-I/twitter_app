@@ -37,14 +37,26 @@ class _CarusalSliderWidgetState extends State<CarusalSliderWidget> {
                   reverse: false,
                   autoPlay: false,
                   scrollDirection: Axis.horizontal,
-                  enableInfiniteScroll: false
-              )),
+                  enableInfiniteScroll: false,
+                onPageChanged: (int value,CarouselPageChangedReason reason ){
+
+                }
+              ),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: List.generate(
                 widget.images.length,
-                (index) => Container(
-                  width: 14.w,
+                (index) => Padding(
+                  padding: EdgeInsets.all(8.spMax),
+                  child: Container(
+                    width: 8.w,
+                    height: 8.h,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Pallete.whiteColor
+                    ),
+                  ),
                 )
             ),
           )
