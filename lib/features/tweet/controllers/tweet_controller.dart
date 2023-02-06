@@ -32,7 +32,7 @@ class TweetController extends StateNotifier<bool>{
 
   Future<List<TweetModel>> getListOfTweets()async{
     final tweets = await _tweetApi.getListOfTweets();
-    tweets.map((e) => )
+    tweets.map((tweet) => );
   }
 
   void shareTweet({
