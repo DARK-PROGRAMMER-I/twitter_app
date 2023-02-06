@@ -3,9 +3,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:twitter_clone/core/enums/tweet_type.dart';
 import 'package:twitter_clone/features/auth/controllers/auth_controller.dart';
 import 'package:twitter_clone/features/tweet/widgets/carusal_slider_widget.dart';
+import 'package:twitter_clone/features/tweet/widgets/tweet_icon_button.dart';
 import 'package:twitter_clone/models/tweet_models/tweet_model.dart';
 import 'package:twitter_clone/utils/common/styles_manager.dart';
 import 'package:timeago/timeago.dart' as timeago;
+import 'package:twitter_clone/utils/constants/asset_constants.dart';
 
 import '../../../utils/common/exports.dart';
 import '../../../utils/theme/pallete.dart';
@@ -28,6 +30,7 @@ class TweetCardWidget extends ConsumerWidget {
                 padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 15.w),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CircleAvatar(
                       backgroundImage: NetworkImage(user.profilePic),
@@ -69,7 +72,23 @@ class TweetCardWidget extends ConsumerWidget {
                                     child: AnyLinkPreview(
                                         displayDirection: UIDirection.uiDirectionHorizontal,
                                         link: 'https://${tweet.link}'
-                                    ))
+                                    )),
+
+                                if(tweet.tweetType == TweetType.image)
+                                CarusalSliderWidget(images: tweet.imageLinks,),
+                                Container(
+                                  margin: EdgeInsets.only(top: 20.h),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      TweetIconButton(
+                                        onTap: (){},
+                                        text: (tweet.commentIds.length +),
+                                        pathName: AssetsConstants.viewsIcon,
+                                      ),
+                                    ],
+                                  ),
+                                )
                               ],
                             ),
                         ),
@@ -77,8 +96,8 @@ class TweetCardWidget extends ConsumerWidget {
                   ],
                 ),
               ),
-              if(tweet.tweetType == TweetType.image)
-              CarusalSliderWidget(images: tweet.imageLinks,)
+
+
             ],
           );
         },

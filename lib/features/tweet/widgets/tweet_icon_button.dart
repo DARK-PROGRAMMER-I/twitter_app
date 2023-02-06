@@ -1,4 +1,5 @@
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:twitter_clone/utils/theme/pallete.dart';
 
 import '../../../utils/common/exports.dart';
 
@@ -10,9 +11,12 @@ class TweetIconButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(10.spMax),
-      child: SvgPicture.asset(pathName),
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        margin: EdgeInsets.all(10.spMax),
+        child: SvgPicture.asset(pathName, color: Pallete.greyColor,),
+      ),
     );
   }
 }
