@@ -58,7 +58,7 @@ class TweetCardWidget extends ConsumerWidget {
                 ),
               ),
               if(tweet.tweetType == TweetType.image)
-              const CarusalSliderWidget()
+              CarusalSliderWidget(images: tweet.imageLinks,)
             ],
           );
         },
