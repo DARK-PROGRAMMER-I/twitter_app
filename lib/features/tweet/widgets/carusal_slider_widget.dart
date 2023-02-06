@@ -39,9 +39,13 @@ class _CarusalSliderWidgetState extends State<CarusalSliderWidget> {
                   scrollDirection: Axis.horizontal,
                   enableInfiniteScroll: false
               )),
-          Container(
-            child: Row(
-              children: List.generate(widget.images.length, (index) => null),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: List.generate(
+                widget.images.length,
+                (index) => Container(
+                  width: 14.w,
+                )
             ),
           )
         ],
