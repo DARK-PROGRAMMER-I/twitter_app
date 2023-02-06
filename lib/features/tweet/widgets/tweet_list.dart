@@ -8,7 +8,15 @@ class TweetList extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return ref.watch(tweetListProvider).when(data: data, error: error, loading: loading
+    return ref.watch(tweetListProvider)
+    .when(
+        data: (tweetList){
+
+        },
+        error: (error, stackTrace){
+
+        },
+        loading: const Loadi
     );
   }
 }
