@@ -6,8 +6,7 @@ class HashTaggedText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-
+    List<TextSpan> textSpans = [];
     return const Placeholder();
   }
 }
