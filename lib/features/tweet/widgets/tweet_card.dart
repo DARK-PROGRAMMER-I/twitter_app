@@ -1,5 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:twitter_clone/core/enums/tweet_type.dart';
 import 'package:twitter_clone/features/auth/controllers/auth_controller.dart';
+import 'package:twitter_clone/features/tweet/widgets/carusal_slider_widget.dart';
 import 'package:twitter_clone/models/tweet_models/tweet_model.dart';
 import 'package:twitter_clone/utils/common/styles_manager.dart';
 
@@ -54,8 +56,9 @@ class TweetCardWidget extends ConsumerWidget {
                     )
                   ],
                 ),
-                CarusalSliderWidget()
-              )
+              ),
+              if(tweet.tweetType == TweetType.image)
+              const CarusalSliderWidget()
             ],
           );
         },
