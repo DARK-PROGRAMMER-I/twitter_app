@@ -30,8 +30,7 @@ class TweetCardWidget extends ConsumerWidget {
                       radius: 30.r,
                     ),
                     Expanded(
-                        child
-                        : Padding(
+                        child: Padding(
                             padding: EdgeInsets.only(left: 20.spMax),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -55,6 +54,7 @@ class TweetCardWidget extends ConsumerWidget {
                     )
                   ],
                 ),
+                CarusalSliderWidget()
               )
             ],
           );
