@@ -21,7 +21,8 @@ final tweetControllerProvider = StateNotifierProvider<TweetController, bool>((re
 });
 
 final tweetListProvider = FutureProvider((ref){
-  final tweetController =
+  final tweetController = ref.watch(tweetControllerProvider.notifier);
+  return tweetController.getListOfTweets();
 });
 
 class TweetController extends StateNotifier<bool>{
