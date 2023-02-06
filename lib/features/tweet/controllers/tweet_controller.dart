@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:appwrite/appwrite.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:twitter_clone/apis/tweet/tweet_api.dart';
@@ -28,6 +29,11 @@ class TweetController extends StateNotifier<bool>{
         _tweetApi = tweetApi,
         _storageApi = storageApi,
         super(false);
+
+  Future<List<TweetModel>> getListOfTweets()async{
+    final tweets = await _tweetApi.getListOfTweets();
+    tweets.map((e) => )
+  }
 
   void shareTweet({
     required List<File> images ,
