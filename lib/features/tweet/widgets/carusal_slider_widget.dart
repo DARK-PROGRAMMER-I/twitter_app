@@ -39,7 +39,9 @@ class _CarusalSliderWidgetState extends State<CarusalSliderWidget> {
                   scrollDirection: Axis.horizontal,
                   enableInfiniteScroll: false,
                 onPageChanged: (int value,CarouselPageChangedReason reason ){
-
+                    setState(() {
+                      index = value;
+                    });
                 }
               ),
           ),
@@ -47,14 +49,14 @@ class _CarusalSliderWidgetState extends State<CarusalSliderWidget> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: List.generate(
                 widget.images.length,
-                (index) => Padding(
-                  padding: EdgeInsets.all(8.spMax),
+                (currentIndex) => Padding(
+                  padding: EdgeInsets.all(10.spMax),
                   child: Container(
                     width: 8.w,
                     height: 8.h,
                     decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Pallete.whiteColor
+                      shape: currentIndex == index? BoxShape.rectangle:BoxShape.circle,
+                      color: currentIndex == index?  Pallete.whiteColor : Pallete.greyColor
                     ),
                   ),
                 )
