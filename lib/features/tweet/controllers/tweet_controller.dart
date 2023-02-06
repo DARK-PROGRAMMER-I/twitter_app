@@ -20,6 +20,10 @@ final tweetControllerProvider = StateNotifierProvider<TweetController, bool>((re
   );
 });
 
+final tweetListProvider = FutureProvider((ref){
+
+});
+
 class TweetController extends StateNotifier<bool>{
   final Ref _ref ;
   final TweetApi _tweetApi ;
