@@ -83,8 +83,27 @@ class TweetCardWidget extends ConsumerWidget {
                                     children: [
                                       TweetIconButton(
                                         onTap: (){},
-                                        text: (tweet.commentIds.length +),
+                                        text: (tweet.commentIds.length + tweet.likes.length + tweet.reshareCount).toString(),
                                         pathName: AssetsConstants.viewsIcon,
+                                      ),
+                                      TweetIconButton(
+                                        onTap: (){},
+                                        text: (tweet.commentIds.length).toString(),
+                                        pathName: AssetsConstants.commentIcon,
+                                      ),
+                                      TweetIconButton(
+                                        onTap: (){},
+                                        text: (tweet.likes.length ).toString(),
+                                        pathName: AssetsConstants.likeOutlinedIcon,
+                                      ),
+                                      TweetIconButton(
+                                        onTap: (){},
+                                        text: tweet.reshareCount.toString(),
+                                        pathName: AssetsConstants.retweetIcon,
+                                      ),
+                                      IconButton(
+                                          onPressed: (){},
+                                          icon: Icon(Icons.share),
                                       ),
                                     ],
                                   ),

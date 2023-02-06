@@ -15,7 +15,14 @@ class TweetIconButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         margin: EdgeInsets.all(10.spMax),
-        child: SvgPicture.asset(pathName, color: Pallete.greyColor,),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            SvgPicture.asset(pathName, color: Pallete.greyColor,),
+            SizedBox(width: 5.w,),
+            Text(text)
+          ],
+        ),
       ),
     );
   }
