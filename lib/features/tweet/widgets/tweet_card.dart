@@ -61,12 +61,15 @@ class TweetCardWidget extends ConsumerWidget {
                                 ),
                                 HashTaggedText(text: tweet.text,),
                                 SizedBox(height: 10.h,),
-                                if(tweet.link.isNotEmpty)
+                                if(tweet.link.isNotEmpty &&tweet.link != null )
                                 Container(
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(20.r)
                                     ),
-                                    child: AnyLinkPreview(link: tweet.link))
+                                    child: AnyLinkPreview(
+                                        displayDirection: UIDirection.uiDirectionHorizontal,
+                                        link: 'https://${tweet.link}'
+                                    ))
                               ],
                             ),
                         ),

@@ -33,6 +33,7 @@ class _CarusalSliderWidgetState extends State<CarusalSliderWidget> {
                 return Image.network(image);
               }).toList(),
               options: CarouselOptions(
+                viewportFraction: 1,
                   height: 220.h,
                   reverse: false,
                   autoPlay: false,
