@@ -39,7 +39,7 @@ class TweetController extends StateNotifier<bool>{
       showSnakBar(context, 'Please enter text ... ');
     }
 
-    if(images.isNotEmpty){
+    else if(images.isNotEmpty){
       _shareImageTweet(
         context: context,
         images: images,
