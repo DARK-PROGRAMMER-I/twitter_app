@@ -1,8 +1,8 @@
 import 'exports.dart';
 
-class ErrorWidget extends StatelessWidget {
+class ErrorrWidget extends StatelessWidget {
   final String message;
-  const ErrorWidget({Key? key, required this.message}) : super(key: key);
+  const ErrorrWidget({Key? key, required this.message}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class ErrorScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ErrorWidget(message: message,),
+      body: ErrorrWidget(message: message,),
     );
   }
 }
