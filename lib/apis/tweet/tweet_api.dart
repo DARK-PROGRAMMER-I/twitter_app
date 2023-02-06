@@ -45,7 +45,7 @@ class TweetApi implements ITweetApi{
         databaseId: AppwriteConstants.databaseId,
         collectionId: AppwriteConstants.tweetCollectionId
     );
-
+    print('Last Document : ${documents.documents.last.$id}');
     return documents.documents;
   }
 
