@@ -15,10 +15,13 @@ class TweetCardWidget extends ConsumerWidget {
     when(
         data: (user){
           return Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     CircleAvatar(
                       backgroundImage: NetworkImage(user.profilePic),
@@ -28,7 +31,15 @@ class TweetCardWidget extends ConsumerWidget {
                         child
                         : Padding(
                             padding: EdgeInsets.only(left: 20.spMax),
-                            child: HashTaggedText(text: tweet.text,)))
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  user.name,
+                                ),
+                                HashTaggedText(text: tweet.text,),
+                              ],
+                            )))
                   ],
                 ),
               )
