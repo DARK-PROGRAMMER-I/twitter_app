@@ -26,7 +26,9 @@ class TweetCardWidget extends ConsumerWidget {
                     ),
                     Expanded(
                         child
-                        : HashTaggedText(text: tweet.text,))
+                        : Padding(
+                            padding: EdgeInsets.only(left: 20.spMax),
+                            child: HashTaggedText(text: tweet.text,)))
                   ],
                 ),
               )

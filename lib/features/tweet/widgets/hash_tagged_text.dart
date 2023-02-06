@@ -25,7 +25,7 @@ class HashTaggedText extends StatelessWidget {
       else if(element.startsWith('http://') || element.startsWith('www.')){
         textSpans.add(
             TextSpan(
-                text: '$element  ',
+                text: '$element ',
                 style: TextStyle(
                     color: Pallete.blueColor,
                     fontWeight: FontWeight.normal,
@@ -36,7 +36,7 @@ class HashTaggedText extends StatelessWidget {
     else{
         textSpans.add(
             TextSpan(
-                text: '$element  ',
+                text: '$element ',
                 style: TextStyle(
                     color: Pallete.whiteColor,
                     fontWeight: FontWeight.normal,
