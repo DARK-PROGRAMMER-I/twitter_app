@@ -16,6 +16,7 @@ class TweetList extends ConsumerWidget {
     .when(
         data: (tweetList){
           return ListView.builder(
+            physics: const BouncingScrollPhysics(),
             itemCount: tweetList.length,
             itemBuilder: (BuildContext context, int index){
                 TweetModel tweet = tweetList[index];
@@ -27,7 +28,7 @@ class TweetList extends ConsumerWidget {
           print(stackTrace);
          return ErrorrWidget(message: error.toString());
         },
-        loading: ()=> const LoadingWidget()
+        loading: ()=> const SizedBox.shrink()
     );
   }
 }
