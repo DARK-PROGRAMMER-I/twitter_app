@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:twitter_clone/features/tweet/controllers/tweet_controller.dart';
+import 'package:twitter_clone/features/tweet/widgets/tweet_card.dart';
 import 'package:twitter_clone/models/tweet_models/tweet_model.dart';
 import 'package:twitter_clone/utils/common/error_view.dart';
 import 'package:twitter_clone/utils/common/loading_indicator.dart';
@@ -18,9 +19,7 @@ class TweetList extends ConsumerWidget {
             itemCount: tweetList.length,
             itemBuilder: (BuildContext context, int index){
                 TweetModel tweet = tweetList[index];
-                return ListTile(
-                  title: Text(tweet.text),
-                );
+                return TweetCardWidget(tweet: tweet);
               }
           );
         },
