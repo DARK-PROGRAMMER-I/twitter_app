@@ -36,6 +36,7 @@ class TweetCardWidget extends ConsumerWidget {
                               children: [
                                 Text(
                                   user.name,
+                                  style: ,
                                 ),
                                 HashTaggedText(text: tweet.text,),
                               ],

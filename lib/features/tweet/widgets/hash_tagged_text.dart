@@ -18,7 +18,7 @@ class HashTaggedText extends StatelessWidget {
           style: TextStyle(
             color: Pallete.blueColor,
             fontWeight: FontWeight.bold,
-            fontSize: 18.spMax
+            fontSize: 14.spMax
           )
         ));
       }
@@ -29,7 +29,7 @@ class HashTaggedText extends StatelessWidget {
                 style: TextStyle(
                     color: Pallete.blueColor,
                     fontWeight: FontWeight.normal,
-                    fontSize: 16.spMax
+                    fontSize: 14.spMax
                 )
             ));
       }
@@ -40,7 +40,7 @@ class HashTaggedText extends StatelessWidget {
                 style: TextStyle(
                     color: Pallete.whiteColor,
                     fontWeight: FontWeight.normal,
-                    fontSize: 18.spMax
+                    fontSize: 14.spMax
                 )
             ));
       }
