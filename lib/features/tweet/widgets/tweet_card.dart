@@ -4,6 +4,7 @@ import 'package:twitter_clone/features/auth/controllers/auth_controller.dart';
 import 'package:twitter_clone/features/tweet/widgets/carusal_slider_widget.dart';
 import 'package:twitter_clone/models/tweet_models/tweet_model.dart';
 import 'package:twitter_clone/utils/common/styles_manager.dart';
+import 'package:timeago/timeago.dart' as timeago;
 
 import '../../../utils/common/exports.dart';
 import '../../../utils/theme/pallete.dart';
@@ -47,6 +48,7 @@ class TweetCardWidget extends ConsumerWidget {
                                       ' @${user.name}',
                                       style: getRegularStyle(color: Pallete.greyColor, fontSize: 16.spMax),
                                     ),
+
                                   ],
                                 ),
                                 HashTaggedText(text: tweet.text,),
