@@ -44,10 +44,17 @@ class TweetCardWidget extends ConsumerWidget {
                                       user.name,
                                       style: getBoldStyle(color: Pallete.whiteColor, fontSize: 18.spMax),
                                     ),
+                                    SizedBox(width: 5.w,),
                                     Text(
                                       ' @${user.name}',
                                       style: getRegularStyle(color: Pallete.greyColor, fontSize: 16.spMax),
                                     ),
+                                    SizedBox(width: 20.w,),
+                                    Text(
+                                      timeago.format(tweet.tweetAt, locale: 'en_short'),
+                                      style: getRegularStyle(color: Pallete.greyColor, fontSize: 16.spMax),
+                                    ),
+
 
                                   ],
                                 ),

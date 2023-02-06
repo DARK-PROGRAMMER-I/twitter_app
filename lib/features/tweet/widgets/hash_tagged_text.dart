@@ -30,7 +30,8 @@ class HashTaggedText extends StatelessWidget {
                     color: Pallete.blueColor,
                     fontWeight: FontWeight.normal,
                     fontSize: 14.spMax
-                )
+                ),
+              recognizer:
             ));
       }
     else{
