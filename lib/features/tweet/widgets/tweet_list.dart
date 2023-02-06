@@ -13,6 +13,7 @@ class TweetList extends ConsumerWidget {
     return ref.watch(tweetListProvider)
     .when(
         data: (tweetList){
+          print('Total Tweets : ${tweetList.length}');
           return ListView.builder(
             physics: const BouncingScrollPhysics(),
             itemCount: tweetList.length,

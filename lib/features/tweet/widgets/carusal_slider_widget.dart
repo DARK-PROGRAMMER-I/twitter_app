@@ -53,10 +53,10 @@ class _CarusalSliderWidgetState extends State<CarusalSliderWidget> {
                 (currentIndex) => Padding(
                   padding: EdgeInsets.all(10.spMax),
                   child: Container(
-                    width: 8.w,
-                    height: 8.h,
+                    width: 12.w,
+                    height: 12.h,
                     decoration: BoxDecoration(
-                      shape: currentIndex == index? BoxShape.rectangle:BoxShape.circle,
+                      shape: BoxShape.circle,
                       color: currentIndex == index?  Pallete.whiteColor : Pallete.greyColor
                     ),
                   ),
