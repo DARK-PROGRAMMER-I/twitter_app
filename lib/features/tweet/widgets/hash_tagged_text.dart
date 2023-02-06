@@ -7,6 +7,7 @@ class HashTaggedText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<TextSpan> textSpans = [];
+    List<String> splittedText = text.split(' ');
     return const Placeholder();
   }
 }
