@@ -15,7 +15,18 @@ class TweetCardWidget extends ConsumerWidget {
         data: (user){
           return Column(
             children: [
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20),
+                child: Row(
+                  children: [
+                    CircleAvatar(
+                      backgroundImage: NetworkImage(user.profilePic),
+                      radius: 30.r,
+                    ),
 
+                  ],
+                ),
+              )
             ],
           );
         },
