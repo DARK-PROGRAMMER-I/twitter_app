@@ -26,7 +26,8 @@ class TweetCardWidget extends ConsumerWidget {
     when(
         data: (user){
           final currentUser = ref.watch(currentUserDetailsProvider).value;
-          return Column(
+          return currentUser == null ? const SizedBox.shrink() :
+          Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -98,7 +99,7 @@ class TweetCardWidget extends ConsumerWidget {
                                       LikeButton(
                                         size: 26.spMax,
                                         onTap: (isLiked)async{
-                                          ref.read(tweetControllerProvider.notifier).likeTweet(tweet, currentUser);
+                                          ref.read(tweetControllerProvider.notifier).likeTweet(tweet, currentUser!);
                                         },
                                         likeBuilder: (isLiked){
                                           return isLiked ?
