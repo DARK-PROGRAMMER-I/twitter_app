@@ -19,6 +19,7 @@ abstract class ITweetApi{
   FutureEither<Document> shareTweet({required TweetModel tweetModel});
   Future<List<Document>> getListOfTweets();
   Stream<RealtimeMessage> getLatestTweet();
+  FutureEither<Document> likeTweet(TweetModel tweetModel);
 }
 
 class TweetApi implements ITweetApi{
