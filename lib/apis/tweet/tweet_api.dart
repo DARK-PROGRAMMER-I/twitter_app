@@ -68,4 +68,23 @@ class TweetApi implements ITweetApi{
     ]).stream;
   }
 
+  @override
+  FutureEither<Document> likeTweet(TweetModel tweetModel) async{
+    try{
+      final document = await _db.updateDocument(
+          databaseId: AppwriteConstants.databaseId,
+          collectionId: AppwriteConstants.tweetCollectionId,
+          documentId: tweetModel.tweetId,
+          data: {
+            ''
+          }
+      );
+      return Right(document);
+    }on AppwriteException catch(error, stactTrace){
+      return Left(Failure(error.message.toString(), stactTrace));
+    }catch(error, stactTrace){
+      return Left(Failure(error.toString(), stactTrace));
+    }
+  }
+
 }
