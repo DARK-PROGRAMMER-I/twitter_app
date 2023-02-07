@@ -94,11 +94,17 @@ class TweetCardWidget extends ConsumerWidget {
                                         pathName: AssetsConstants.commentIcon,
                                       ),
                                       LikeButton(
-                                        size: 24.spMax,
+                                        size: 26.spMax,
                                         likeBuilder: (isLiked){
                                           return isLiked ?
-                                          SvgPicture.asset(AssetsConstants.likeFilledIcon, color: Pallete.redColor,width: 12.w, height: 12.h,) :
-                                          SvgPicture.asset(AssetsConstants.likeOutlinedIcon, color: Pallete.greyColor,width: 12.w, height: 12.h,);
+                                          SvgPicture.asset(AssetsConstants.likeFilledIcon, color: Pallete.redColor,) :
+                                          SvgPicture.asset(AssetsConstants.likeOutlinedIcon, color: Pallete.greyColor,);
+                                        },
+
+                                        countBuilder: (likeCount, isLiked, text ){
+                                          return isLiked ?
+                                            Text(text, style: getRegularStyle(color: Pallete.redColor, fontSize: 20),):
+                                            Text(text, style: getRegularStyle(color: Pallete.whiteColor, fontSize: 20),);
                                         },
                                       ),
                                       TweetIconButton(
