@@ -100,11 +100,12 @@ class TweetCardWidget extends ConsumerWidget {
                                           SvgPicture.asset(AssetsConstants.likeFilledIcon, color: Pallete.redColor,) :
                                           SvgPicture.asset(AssetsConstants.likeOutlinedIcon, color: Pallete.greyColor,);
                                         },
-
+                                        likeCount: tweet.likes.length,
                                         countBuilder: (likeCount, isLiked, text ){
-                                          return isLiked ?
-                                            Text(text, style: getRegularStyle(color: Pallete.redColor, fontSize: 20),):
-                                            Text(text, style: getRegularStyle(color: Pallete.whiteColor, fontSize: 20),);
+                                          return Text(text, style:
+                                          isLiked ?
+                                          getRegularStyle(color: Pallete.redColor, fontSize: 14.spMax):
+                                          getRegularStyle(color: Pallete.whiteColor, fontSize: 14.spMax),);
                                         },
                                       ),
                                       TweetIconButton(
