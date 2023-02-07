@@ -76,7 +76,7 @@ class TweetApi implements ITweetApi{
           collectionId: AppwriteConstants.tweetCollectionId,
           documentId: tweetModel.tweetId,
           data: {
-            ''
+            'likes':tweetModel.likes
           }
       );
       return Right(document);
