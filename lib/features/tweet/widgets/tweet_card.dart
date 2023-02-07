@@ -99,7 +99,7 @@ class TweetCardWidget extends ConsumerWidget {
                                       LikeButton(
                                         size: 26.spMax,
                                         onTap: (isLiked)async{
-                                          ref.read(tweetControllerProvider.notifier).likeTweet(tweet, currentUser!);
+                                          ref.read(tweetControllerProvider.notifier).likeTweet(tweet, currentUser);
                                         },
                                         likeBuilder: (isLiked){
                                           return isLiked ?
