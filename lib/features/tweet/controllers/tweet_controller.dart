@@ -25,6 +25,9 @@ final tweetListProvider = FutureProvider((ref){
   return tweetController.getListOfTweets();
 });
 
+// Stream Provider for getting latest Tweet
+final getLatest
+
 class TweetController extends StateNotifier<bool>{
   final Ref _ref ;
   final TweetApi _tweetApi ;
