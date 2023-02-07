@@ -185,6 +185,7 @@ class TweetController extends StateNotifier<bool>{
     result.fold((l) {
       if (kDebugMode) {
         print(l.stackTrace);
+        print(l.message);
 
       }}, (r) => null);
   }

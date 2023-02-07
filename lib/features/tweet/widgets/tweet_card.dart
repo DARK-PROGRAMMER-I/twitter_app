@@ -101,6 +101,7 @@ class TweetCardWidget extends ConsumerWidget {
                                         onTap: (isLiked)async{
                                           ref.read(tweetControllerProvider.notifier).likeTweet(tweet, currentUser);
                                         },
+                                        isLiked: tweet.likes.contains(currentUser.uid),
                                         likeBuilder: (isLiked){
                                           return isLiked ?
                                           SvgPicture.asset(AssetsConstants.likeFilledIcon, color: Pallete.redColor,) :
