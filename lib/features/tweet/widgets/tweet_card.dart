@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:like_button/like_button.dart';
 import 'package:twitter_clone/core/enums/tweet_type.dart';
 import 'package:twitter_clone/features/auth/controllers/auth_controller.dart';
+import 'package:twitter_clone/features/tweet/controllers/tweet_controller.dart';
 import 'package:twitter_clone/features/tweet/widgets/carusal_slider_widget.dart';
 import 'package:twitter_clone/features/tweet/widgets/tweet_icon_button.dart';
 import 'package:twitter_clone/models/tweet_models/tweet_model.dart';
@@ -96,7 +97,7 @@ class TweetCardWidget extends ConsumerWidget {
                                       LikeButton(
                                         size: 26.spMax,
                                         onTap: (isLiked)async{
-
+                                          ref.read(tweetControllerProvider.notifier).likeTweet(tweet, userModel);
                                         },
                                         likeBuilder: (isLiked){
                                           return isLiked ?
