@@ -169,4 +169,9 @@ class TweetController extends StateNotifier<bool>{
     return links;
   }
 
+  // Like Tweet
+  Future<void> likeTweet(TweetModel tweetModel, UserModel userModel){
+
+  }
+
 }
