@@ -18,24 +18,34 @@ class TweetList extends ConsumerWidget {
             .when(
               data: (latestTweet){
                 if(latestTweet.events.contains('databases.*.collections.${AppwriteConstants.tweetCollectionId}.documents.*.create')){
-                  tweetList.insert(index, element)
+                  print('New creation!');
+                  tweetList.insert(0, TweetModel.fromMap(latestTweet.payload));
                 }
+
+                return ListView.builder(
+                    physics: const BouncingScrollPhysics(),
+                    itemCount: tweetList.length,
+                    itemBuilder: (BuildContext context, int index){
+                      TweetModel tweet = tweetList[index];
+                      return TweetCardWidget(tweet: tweet);
+                    }
+                );
               },
               error: (error, stackTrace) {
                 print(stackTrace);
                 return ErrorrWidget(message: error.toString());
               },
-              loading: ()=> const LoadingWidget()
+              loading: ()=> ListView.builder(
+                  physics: const BouncingScrollPhysics(),
+                  itemCount: tweetList.length,
+                  itemBuilder: (BuildContext context, int index){
+                    TweetModel tweet = tweetList[index];
+                    return TweetCardWidget(tweet: tweet);
+                  }
+              )
           );
 
-          // ListView.builder(
-          //   physics: const BouncingScrollPhysics(),
-          //   itemCount: tweetList.length,
-          //   itemBuilder: (BuildContext context, int index){
-          //       TweetModel tweet = tweetList[index];
-          //       return TweetCardWidget(tweet: tweet);
-          //     }
-          // );
+
         },
         error: (error, stackTrace) {
           print(stackTrace);

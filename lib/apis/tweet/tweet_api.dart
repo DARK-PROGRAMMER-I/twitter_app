@@ -60,7 +60,7 @@ class TweetApi implements ITweetApi{
   @override
   Stream<RealtimeMessage> getLatestTweet() {
     return _realTime.subscribe([
-      'databses.${AppwriteConstants.databaseId}.collections.${AppwriteConstants.tweetCollectionId}.documents'
+      'databases.${AppwriteConstants.databaseId}.collections.${AppwriteConstants.tweetCollectionId}.documents'
     ]).stream;
   }
 
