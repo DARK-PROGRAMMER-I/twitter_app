@@ -1,5 +1,7 @@
 import 'package:any_link_preview/any_link_preview.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:like_button/like_button.dart';
 import 'package:twitter_clone/core/enums/tweet_type.dart';
 import 'package:twitter_clone/features/auth/controllers/auth_controller.dart';
 import 'package:twitter_clone/features/tweet/widgets/carusal_slider_widget.dart';
@@ -91,10 +93,13 @@ class TweetCardWidget extends ConsumerWidget {
                                         text: (tweet.commentIds.length).toString(),
                                         pathName: AssetsConstants.commentIcon,
                                       ),
-                                      TweetIconButton(
-                                        onTap: (){},
-                                        text: (tweet.likes.length ).toString(),
-                                        pathName: AssetsConstants.likeOutlinedIcon,
+                                      LikeButton(
+                                        size: 24.spMax,
+                                        likeBuilder: (isLiked){
+                                          return isLiked ?
+                                          SvgPicture.asset(AssetsConstants.likeFilledIcon, color: Pallete.redColor,width: 12.w, height: 12.h,) :
+                                          SvgPicture.asset(AssetsConstants.likeOutlinedIcon, color: Pallete.greyColor,width: 12.w, height: 12.h,);
+                                        },
                                       ),
                                       TweetIconButton(
                                         onTap: (){},
