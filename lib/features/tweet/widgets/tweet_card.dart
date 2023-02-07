@@ -101,11 +101,13 @@ class TweetCardWidget extends ConsumerWidget {
                                         onTap: (isLiked)async{
                                           ref.read(tweetControllerProvider.notifier).likeTweet(tweet, currentUser);
                                         },
+                                        bubblesSize: 20,
+                                        bubblesColor: BubblesColor(dotPrimaryColor: Colors.white, dotSecondaryColor: Colors.red),
                                         isLiked: tweet.likes.contains(currentUser.uid),
                                         likeBuilder: (isLiked){
                                           return isLiked ?
-                                          SvgPicture.asset(AssetsConstants.likeFilledIcon, color: Pallete.redColor,) :
-                                          SvgPicture.asset(AssetsConstants.likeOutlinedIcon, color: Pallete.greyColor,);
+                                          SvgPicture.asset(AssetsConstants.likeFilledIcon, color: Pallete.redColor, height: 12,) :
+                                          SvgPicture.asset(AssetsConstants.likeOutlinedIcon, color: Pallete.greyColor, height: 12,);
                                         },
                                         likeCount: tweet.likes.length,
                                         countBuilder: (likeCount, isLiked, text ){
