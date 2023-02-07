@@ -170,8 +170,12 @@ class TweetController extends StateNotifier<bool>{
   }
 
   // Like Tweet
-  Future<void> likeTweet(TweetModel tweetModel, UserModel userModel){
+  Future<void> likeTweet(TweetModel tweetModel, UserModel userModel)async{
+    if(tweetModel.likes.contains(userModel.uid)){
+      tweetModel.likes.remove(userModel.uid);
+    }
 
+    final result = await _tweetApi.likeTweet(tweetModel);
   }
 
 }
