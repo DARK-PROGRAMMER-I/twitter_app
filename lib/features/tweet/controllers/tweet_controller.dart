@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:appwrite/appwrite.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:twitter_clone/apis/tweet/tweet_api.dart';
 import 'package:twitter_clone/core/enums/tweet_type.dart';
@@ -162,7 +163,6 @@ class TweetController extends StateNotifier<bool>{
 
     splittedText.forEach((element) {
       if(element.startsWith('www') || element.startsWith('http')){
-        print(element);
         links = element;
       }
     });
@@ -177,9 +177,16 @@ class TweetController extends StateNotifier<bool>{
     }else{
       likes.add(userModel.uid);
     }
-    tweetModel.copyWith();
+    tweetModel.copyWith(
+      likes: likes
+    );
 
     final result = await _tweetApi.likeTweet(tweetModel);
+    result.fold((l) {
+      if (kDebugMode) {
+        print(l.stackTrace);
+
+      }}, (r) => null);
   }
 
 }
