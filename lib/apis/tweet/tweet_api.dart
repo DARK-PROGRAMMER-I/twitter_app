@@ -50,9 +50,12 @@ class TweetApi implements ITweetApi{
   Future<List<Document>> getListOfTweets() async{
     final documents = await _db.listDocuments(
         databaseId: AppwriteConstants.databaseId,
-        collectionId: AppwriteConstants.tweetCollectionId
+        collectionId: AppwriteConstants.tweetCollectionId,
+        queries: [
+          Query.orderDesc('tweetAt'),
+        ] 
     );
-    print('Last Document : ${documents.documents.last.$id}');
+    
     return documents.documents;
   }
 
