@@ -25,6 +25,7 @@ class TweetCardWidget extends ConsumerWidget {
     return ref.watch(userDetailsProvider(tweet.uid)).
     when(
         data: (user){
+          final currentUser = ref.watch(currentUserDetailsProvider);
           return Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
