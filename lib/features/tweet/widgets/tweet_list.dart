@@ -4,6 +4,7 @@ import 'package:twitter_clone/features/tweet/widgets/tweet_card.dart';
 import 'package:twitter_clone/models/tweet_models/tweet_model.dart';
 
 import '../../../utils/common/exports.dart';
+import '../../../utils/constants/appwrite_constants.dart';
 
 class TweetList extends ConsumerWidget {
   const TweetList({Key? key}) : super(key: key);
@@ -16,7 +17,7 @@ class TweetList extends ConsumerWidget {
           return ref.watch(getLatestTweetProvider)
             .when(
               data: (latestTweet){
-                if(latestTweet.events == ['databases.*.collections.${}']){
+                if(latestTweet.events.contains('databases.*.collections.${AppwriteConstants.tweetCollectionId}.documents.*.create')){
                   tweetList.insert(index, element)
                 }
               },
