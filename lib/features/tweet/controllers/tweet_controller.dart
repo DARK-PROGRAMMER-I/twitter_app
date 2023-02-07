@@ -175,8 +175,9 @@ class TweetController extends StateNotifier<bool>{
     if(likes.contains(userModel.uid)){
       likes.remove(userModel.uid);
     }else{
-      likes.add(userModel)
+      likes.add(userModel.uid);
     }
+    tweetModel.copyWith();
 
     final result = await _tweetApi.likeTweet(tweetModel);
   }
