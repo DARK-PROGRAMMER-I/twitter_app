@@ -95,6 +95,9 @@ class TweetCardWidget extends ConsumerWidget {
                                       ),
                                       LikeButton(
                                         size: 26.spMax,
+                                        onTap: (isLiked)async{
+
+                                        },
                                         likeBuilder: (isLiked){
                                           return isLiked ?
                                           SvgPicture.asset(AssetsConstants.likeFilledIcon, color: Pallete.redColor,) :
