@@ -217,7 +217,7 @@ class TweetController extends StateNotifier<bool>{
         tweetAt: DateTime.now()
       );
       final result2 = await _tweetApi.shareTweet(tweetModel: tweet1);
-
+      // TODO fold here
       showSnakBar(context, 'Retweeted!');
     });
   }
