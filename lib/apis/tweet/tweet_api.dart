@@ -89,13 +89,17 @@ class TweetApi implements ITweetApi{
   }
 
   @override
-  FutureEither<Document> reshareTweet(TweetModel tweetModel) {
+  FutureEither<Document> reshareTweet(TweetModel tweetModel) async{
     try{
-      _db.updateDocument(
+      final document = await _db.updateDocument(
           databaseId: AppwriteConstants.databaseId,
           collectionId: AppwriteConstants.tweetCollectionId,
-          documentId: documentId
+          documentId: tweetModel.tweetId,
+          data: {
+            'reshareCount':tweetModel.reshareCount
+          }
       );
+      return Right(document);
     }on AppwriteException catch(error, stactTrace){
       return Left(Failure(error.message.toString(), stactTrace));
     }catch(error, stactTrace){
