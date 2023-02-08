@@ -20,7 +20,7 @@ abstract class ITweetApi{
   Future<List<Document>> getListOfTweets();
   Stream<RealtimeMessage> getLatestTweet();
   FutureEither<Document> likeTweet(TweetModel tweetModel);
-  FutureEither<Document> reshareTweet(TweetModel tweetModel);
+  FutureEither<Document> updateReshareCount(TweetModel tweetModel);
 }
 
 class TweetApi implements ITweetApi{
@@ -89,7 +89,7 @@ class TweetApi implements ITweetApi{
   }
 
   @override
-  FutureEither<Document> reshareTweet(TweetModel tweetModel) async{
+  FutureEither<Document> updateReshareCount(TweetModel tweetModel) async{
     try{
       final document = await _db.updateDocument(
           databaseId: AppwriteConstants.databaseId,

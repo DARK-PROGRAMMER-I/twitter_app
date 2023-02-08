@@ -195,7 +195,11 @@ class TweetController extends StateNotifier<bool>{
 
 
   // Reshare Tweet
-  Future<void> likeTweet(TweetModel tweetModel, UserModel userModel)async{
+  Future<void> reshareTweet({
+    required TweetModel tweetModel,
+    required UserModel userModel,
+    required BuildContext context,
+  })async{
     List<dynamic> likes = tweetModel.likes;
     if(likes.contains(userModel.uid)){
       likes.remove(userModel.uid);
@@ -206,13 +210,15 @@ class TweetController extends StateNotifier<bool>{
         likes: likes
     );
 
-    final result = await _tweetApi.likeTweet(tweetModel);
+    final result = await _tweetApi.updateReshareCount(tweetModel);
     result.fold((l) {
       if (kDebugMode) {
         print(l.stackTrace);
-        print(l.message);
+        showSnakBar(context, l.message);
 
-      }}, (r) => null);
+      }}, (r) {
+      showSnakBar(context, 'Retweeted!');
+    });
   }
 
 
