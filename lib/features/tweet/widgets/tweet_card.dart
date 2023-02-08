@@ -47,7 +47,7 @@ class TweetCardWidget extends ConsumerWidget {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                if(tweet.retweetedBy == user.name)
+                                if(tweet.retweetedBy.isNotEmpty)
                                 Padding(
                                   padding: EdgeInsets.only(bottom: 10.h),
                                   child: Row(
@@ -129,14 +129,10 @@ class TweetCardWidget extends ConsumerWidget {
                                         size: 26.spMax,
                                         onTap: (isLiked)async{
                                           ref.read(tweetControllerProvider.notifier).likeTweet(tweet, currentUser);
+                                          return !isLiked;
                                         },
                                         bubblesSize: 20,
-                                        circleColor:
-                                        const CircleColor(start: Color(0xff00ddff), end: Color(0xff0099cc)),
-                                        bubblesColor: const BubblesColor(
-                                          dotPrimaryColor: Color(0xff33b5e5),
-                                          dotSecondaryColor: Color(0xff0099cc),
-                                        ),
+
                                         isLiked: tweet.likes.contains(currentUser.uid),
                                         likeBuilder: (isLiked){
                                           return isLiked ?
