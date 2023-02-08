@@ -200,23 +200,18 @@ class TweetController extends StateNotifier<bool>{
     required UserModel userModel,
     required BuildContext context,
   })async{
-    List<dynamic> likes = tweetModel.likes;
-    if(likes.contains(userModel.uid)){
-      likes.remove(userModel.uid);
-    }else{
-      likes.add(userModel.uid);
-    }
-    tweetModel.copyWith(
-        likes: likes
+    TweetModel tweet = tweetModel.copyWith(
+      reshareCount: tweetModel.reshareCount +1
     );
 
-    final result = await _tweetApi.updateReshareCount(tweetModel);
+    final result = await _tweetApi.updateReshareCount(tweet);
     result.fold((l) {
       if (kDebugMode) {
         print(l.stackTrace);
         showSnakBar(context, l.message);
 
-      }}, (r) {
+      }}, (r) async{
+      final result2 = await
       showSnakBar(context, 'Retweeted!');
     });
   }
