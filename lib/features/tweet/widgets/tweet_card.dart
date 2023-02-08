@@ -48,17 +48,20 @@ class TweetCardWidget extends ConsumerWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 if(tweet.retweetedBy == user.name)
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    SvgPicture.asset(AssetsConstants.retweetIcon,color: Pallete.greyColor, height: 18.h, width: 18.w,),
-                                    SizedBox(width: 10.w,),
-                                    Text(
-                                      tweet.retweetedBy,
-                                      style: getRegularStyle(color: Pallete.greyColor, fontSize: 16.spMax),
-                                    ),
-                                    SizedBox(height: 10.h,),
-                                  ],
+                                Padding(
+                                  padding: EdgeInsets.only(bottom: 10.h),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      SvgPicture.asset(AssetsConstants.retweetIcon,color: Pallete.greyColor, height: 18.h, width: 18.w,),
+                                      SizedBox(width: 10.w,),
+                                      Text(
+                                        're-tweeted by ${tweet.retweetedBy}',
+                                        style: getRegularStyle(color: Pallete.greyColor, fontSize: 16.spMax),
+                                      ),
+
+                                    ],
+                                  ),
                                 ),
 
                                 Row(
