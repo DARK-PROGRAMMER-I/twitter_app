@@ -12,6 +12,7 @@ class TweetModel{
   final List<dynamic> commentIds;
   final String tweetId;
   final int reshareCount;
+  final String retweetedBy;
 
 //<editor-fold desc="Data Methods">
   const TweetModel({
@@ -26,6 +27,7 @@ class TweetModel{
     required this.commentIds,
     required this.tweetId,
     required this.reshareCount,
+    required this.retweetedBy,
   });
 
   @override
@@ -43,7 +45,8 @@ class TweetModel{
           likes == other.likes &&
           commentIds == other.commentIds &&
           tweetId == other.tweetId &&
-          reshareCount == other.reshareCount);
+          reshareCount == other.reshareCount &&
+          retweetedBy == other.retweetedBy );
 
   @override
   int get hashCode =>
@@ -57,6 +60,7 @@ class TweetModel{
       likes.hashCode ^
       commentIds.hashCode ^
       tweetId.hashCode ^
+      retweetedBy.hashCode ^
       reshareCount.hashCode;
 
   @override
@@ -73,6 +77,7 @@ class TweetModel{
         ' commentIds: $commentIds,' +
         ' tweetId: $tweetId,' +
         ' reshareCount: $reshareCount,' +
+        ' retweetedBy: $retweetedBy,' +
         '}';
   }
 
@@ -88,6 +93,7 @@ class TweetModel{
     List<dynamic>? commentIds,
     String? tweetId,
     int? reshareCount,
+    String? retweetedBy,
   }) {
     return TweetModel(
       text: text ?? this.text,
@@ -101,6 +107,7 @@ class TweetModel{
       commentIds: commentIds ?? this.commentIds,
       tweetId: tweetId ?? this.tweetId,
       reshareCount: reshareCount ?? this.reshareCount,
+      retweetedBy: retweetedBy ?? this.retweetedBy,
     );
   }
 
@@ -116,6 +123,7 @@ class TweetModel{
       'likes': this.likes,
       'commentIds': this.commentIds,
       'reshareCount': this.reshareCount,
+      'retweetedBy': this.retweetedBy,
     };
   }
 
@@ -132,6 +140,7 @@ class TweetModel{
       commentIds: map['commentIds'] as List<dynamic>,
       tweetId: map['\$id'] as String,
       reshareCount: map['reshareCount'] as int,
+      retweetedBy: map['retweetedBy'] as String,
     );
   }
 

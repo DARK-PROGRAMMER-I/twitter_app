@@ -102,7 +102,12 @@ class TweetCardWidget extends ConsumerWidget {
                                           ref.read(tweetControllerProvider.notifier).likeTweet(tweet, currentUser);
                                         },
                                         bubblesSize: 20,
-                                        bubblesColor: BubblesColor(dotPrimaryColor: Colors.white, dotSecondaryColor: Colors.red),
+                                        circleColor:
+                                        const CircleColor(start: Color(0xff00ddff), end: Color(0xff0099cc)),
+                                        bubblesColor: const BubblesColor(
+                                          dotPrimaryColor: Color(0xff33b5e5),
+                                          dotSecondaryColor: Color(0xff0099cc),
+                                        ),
                                         isLiked: tweet.likes.contains(currentUser.uid),
                                         likeBuilder: (isLiked){
                                           return isLiked ?

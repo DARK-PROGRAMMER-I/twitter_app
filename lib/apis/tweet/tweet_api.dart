@@ -20,6 +20,7 @@ abstract class ITweetApi{
   Future<List<Document>> getListOfTweets();
   Stream<RealtimeMessage> getLatestTweet();
   FutureEither<Document> likeTweet(TweetModel tweetModel);
+  FutureEither<Document> reshareTweet(TweetModel tweetModel);
 }
 
 class TweetApi implements ITweetApi{
@@ -85,6 +86,12 @@ class TweetApi implements ITweetApi{
     }catch(error, stactTrace){
       return Left(Failure(error.toString(), stactTrace));
     }
+  }
+
+  @override
+  FutureEither<Document> reshareTweet(TweetModel tweetModel) {
+    // TODO: implement reshareTweet
+    throw UnimplementedError();
   }
 
 }
