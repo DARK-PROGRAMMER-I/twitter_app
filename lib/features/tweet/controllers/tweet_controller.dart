@@ -97,7 +97,8 @@ class TweetController extends StateNotifier<bool>{
         likes: [],
         commentIds: [],
         tweetId: '',
-        reshareCount: 0
+        reshareCount: 0,
+      retweetedBy: ''
     );
 
     final result = await _tweetApi.shareTweet(tweetModel: tweetModel);
@@ -131,7 +132,8 @@ class TweetController extends StateNotifier<bool>{
         likes: [],
         commentIds: [],
         tweetId: '',
-        reshareCount: 0
+        reshareCount: 0,
+        retweetedBy: ''
     );
 
     final result = await _tweetApi.shareTweet(tweetModel: tweetModel);
