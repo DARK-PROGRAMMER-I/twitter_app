@@ -211,14 +211,23 @@ class TweetController extends StateNotifier<bool>{
         showSnakBar(context, l.message);
 
       }}, (r) async{
-      TweetModel tweet1 = tweet.copyWith(
+      TweetModel tweet1 = tweetModel.copyWith(
         retweetedBy: userModel.name,
         likes: [],
+        commentIds: [],
         tweetAt: DateTime.now()
       );
       final result2 = await _tweetApi.shareTweet(tweetModel: tweet1);
-      // TODO fold here
-      showSnakBar(context, 'Retweeted!');
+      result2.fold(
+          (l) {
+        if (kDebugMode) {
+          print(l.stackTrace);
+          showSnakBar(context, l.message);
+
+      }}, (r){
+        showSnakBar(context, 'Retweeted!');
+      });
+
     });
   }
 
