@@ -216,7 +216,8 @@ class TweetController extends StateNotifier<bool>{
         likes: [],
         tweetAt: DateTime.now()
       );
-      final result2 = await _tweetApi.shareTweet(tweetModel: tweetModel);
+      final result2 = await _tweetApi.shareTweet(tweetModel: tweet1);
+
       showSnakBar(context, 'Retweeted!');
     });
   }
