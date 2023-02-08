@@ -20,7 +20,11 @@ class TweetList extends ConsumerWidget {
                 if(latestTweet.events.contains('databases.*.collections.${AppwriteConstants.tweetCollectionId}.documents.*.create')){
                   tweetList.insert(0, TweetModel.fromMap(latestTweet.payload));
                 }else if(latestTweet.events.contains('databases.*.collections.${AppwriteConstants.tweetCollectionId}.documents.*.update')){
-                  print(latestTweet.payload);
+                  print(latestTweet.payload['\$id']);
+                  int tweetIndex = tweetList.indexWhere((element) => element.tweetId == latestTweet.payload['\$id']);
+                  print('Tweet Index: $tweetIndex');
+                  tweetList.removeAt(tweetIndex);
+                  tweetList.insert(tweetIndex, TweetModel.fromMap(latestTweet.payload));
                 }
 
                 return ListView.builder(
