@@ -49,6 +49,16 @@ class TweetCardWidget extends ConsumerWidget {
                               children: [
                                 Row(
                                   children: [
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          user.name,
+                                          style: getBoldStyle(color: Pallete.whiteColor, fontSize: 18.spMax),
+                                        ),
+                                        SizedBox(width: 5.w,),
+                                      ],
+                                    ),
                                     Text(
                                       user.name,
                                       style: getBoldStyle(color: Pallete.whiteColor, fontSize: 18.spMax),
@@ -96,6 +106,17 @@ class TweetCardWidget extends ConsumerWidget {
                                         text: (tweet.commentIds.length).toString(),
                                         pathName: AssetsConstants.commentIcon,
                                       ),
+                                      TweetIconButton(
+                                        onTap: (){
+                                          ref.read(tweetControllerProvider.notifier).reshareTweet(
+                                            context: context,
+                                            tweetModel: tweet,
+                                            userModel: currentUser,
+                                          );
+                                        },
+                                        text: tweet.reshareCount.toString(),
+                                        pathName: AssetsConstants.retweetIcon,
+                                      ),
                                       LikeButton(
                                         size: 26.spMax,
                                         onTap: (isLiked)async{
@@ -121,11 +142,6 @@ class TweetCardWidget extends ConsumerWidget {
                                           getRegularStyle(color: Pallete.redColor, fontSize: 14.spMax):
                                           getRegularStyle(color: Pallete.whiteColor, fontSize: 14.spMax),);
                                         },
-                                      ),
-                                      TweetIconButton(
-                                        onTap: (){},
-                                        text: tweet.reshareCount.toString(),
-                                        pathName: AssetsConstants.retweetIcon,
                                       ),
                                       IconButton(
                                           onPressed: (){},

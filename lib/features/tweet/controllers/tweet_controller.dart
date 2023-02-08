@@ -216,6 +216,7 @@ class TweetController extends StateNotifier<bool>{
         likes: [],
         commentIds: [],
         reshareCount: 0,
+        tweetId: ID.unique(),
         tweetAt: DateTime.now()
       );
       final result2 = await _tweetApi.shareTweet(tweetModel: tweet1);
