@@ -52,13 +52,15 @@ class TweetCardWidget extends ConsumerWidget {
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
                                     SvgPicture.asset(AssetsConstants.retweetIcon,color: Pallete.greyColor, height: 18.h, width: 18.w,),
+                                    SizedBox(width: 10.w,),
                                     Text(
                                       tweet.retweetedBy,
                                       style: getRegularStyle(color: Pallete.greyColor, fontSize: 16.spMax),
                                     ),
-                                    SizedBox(width: 5.w,),
+                                    SizedBox(height: 10.h,),
                                   ],
                                 ),
+
                                 Row(
                                   children: [
 
