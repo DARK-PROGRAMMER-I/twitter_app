@@ -48,17 +48,18 @@ class TweetCardWidget extends ConsumerWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          user.name,
-                                          style: getBoldStyle(color: Pallete.whiteColor, fontSize: 18.spMax),
-                                        ),
-                                        SizedBox(width: 5.w,),
-                                      ],
+                                    Text(
+                                      tweet.retweetedBy,
+                                      style: getRegularStyle(color: Pallete.greyColor, fontSize: 16.spMax),
                                     ),
+                                    SizedBox(width: 5.w,),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+
                                     Text(
                                       user.name,
                                       style: getBoldStyle(color: Pallete.whiteColor, fontSize: 18.spMax),
