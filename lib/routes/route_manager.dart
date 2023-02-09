@@ -11,6 +11,7 @@ class Routes {
   static const String home = '/home';
   static const String loadingPage = '/loading-page';
   static const String createTweet = '/create-tweet';
+  static const String replyTweet = '/reply-tweet';
 }
 
 class AppRoutes {
@@ -37,6 +38,11 @@ class AppRoutes {
         );
 
       case Routes.createTweet:
+        return MaterialPageRoute(
+          builder: (_) => const CreateTweetView(),
+        );
+
+      case Routes.replyTweet:
         return MaterialPageRoute(
           builder: (_) => const CreateTweetView(),
         );
