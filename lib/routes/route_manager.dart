@@ -48,7 +48,7 @@ class AppRoutes {
         if(settings.name == Routes.replyTweet){
           var data = settings.arguments as Map<String, dynamic>;
           return MaterialPageRoute(
-            builder: (_) => const ReplyToTweetView(),
+            builder: (_) => ReplyToTweetView(tweetModel: data['tweetModel']),
           );
         }
         return null;
