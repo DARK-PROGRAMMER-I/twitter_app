@@ -5,6 +5,8 @@ import 'package:twitter_clone/features/home/views/home_view.dart';
 import 'package:twitter_clone/features/tweet/views/create_tweet_view.dart';
 import 'package:twitter_clone/utils/common/loading_indicator.dart';
 
+import '../features/tweet/views/reply_to_tweet_view.dart';
+
 class Routes {
   static const String login = '/login';
   static const String signup = '/signup';
@@ -43,9 +45,13 @@ class AppRoutes {
         );
 
       case Routes.replyTweet:
-        return MaterialPageRoute(
-          builder: (_) => const CreateTweetView(),
-        );
+        if(settings.name == Routes.replyTweet){
+          var data = settings.arguments as Map<String, dynamic>;
+          return MaterialPageRoute(
+            builder: (_) => const ReplyToTweetView(),
+          );
+        }
+        return null;
 
       default:
         return unDefinedRoute();
